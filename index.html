@@ -43,7 +43,9 @@
       background-color: #b91c1c;
     }
 
-
+.min-h-screen{
+  min-height: 85vh !important;
+}
 
   </style>
   <style>
@@ -87,9 +89,7 @@
 <script>
   const iconList = [
     "condom_4331882.png",
-    "pills_13424330.png",
     "needle_10686985.png",
-    "medicine_14662020.png",
     "records_18744135.png",
     "womb_11052115.png",
     "reproductive-system_5877819.png",
@@ -141,32 +141,29 @@
         <a href="https://www.facebook.com/profile.php?id=61569486591274" title="Facebook" class="text-red-600 hover:text-red-800" target="_blank">
           <i class="fab fa-facebook-f text-xl"></i>
         </a>
-        <a href="https://www.instagram.com/ipasdevelopmentfoundation/" title="Instagram" class="text-red-600 hover:text-red-800" target="_blank">
+        <a href="https://www.instagram.com/humaravikalp/" title="Instagram" class="text-red-600 hover:text-red-800" target="_blank">
           <i class="fab fa-instagram text-xl"></i>
         </a>
-        <a href="https://www.youtube.com/@ipasdevelopmentfoundation" title="YouTube" class="text-red-600 hover:text-red-800" target="_blank">
+        <a href="https://www.youtube.com/@My_Vikalp/shorts?app=desktop" title="YouTube" class="text-red-600 hover:text-red-800" target="_blank">
           <i class="fab fa-youtube text-xl"></i>
         </a>
        
       </div>
     </div>
   </header>
-<section class="relative py-20 px-6 overflow-hidden"
+<section class="relative min-h-[540px] w-full flex items-center overflow-hidden py-0"
          style="background: linear-gradient(90deg, #d8436a, #f47c2e, #f9b233);">
   <!-- Star Borders -->
   <div class="absolute inset-0 z-0 pointer-events-none">
     <svg width="100%" height="100%" preserveAspectRatio="none">
       <defs>
-        <!-- Pink Stars -->
         <pattern id="pink-stars" width="18" height="18" patternUnits="userSpaceOnUse">
           <polygon points="9,0 11,6 18,6 12,10 14,16 9,13 4,16 6,10 0,6 7,6" fill="#e0116b" />
         </pattern>
-        <!-- Mustard Stars -->
         <pattern id="mustard-stars" width="18" height="18" patternUnits="userSpaceOnUse">
           <polygon points="9,0 11,6 18,6 12,10 14,16 9,13 4,16 6,10 0,6 7,6" fill="#f9a116" />
         </pattern>
       </defs>
-      <!-- Borders -->
       <rect x="0" y="0" width="100%" height="12" fill="url(#pink-stars)" />
       <rect x="0" y="calc(100% - 12px)" width="100%" height="12" fill="url(#pink-stars)" />
       <rect x="0" y="0" width="12" height="100%" fill="url(#mustard-stars)" />
@@ -175,53 +172,37 @@
   </div>
 
   <!-- Main Content -->
-  <div class="relative max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between z-10">
+  <div class="relative max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between z-10 px-8 pt-8">
     <!-- Left Content -->
-    <div class="text-center md:text-left md:w-1/2">
-      <h1 class="text-3xl sm:text-4xl font-bold mb-6 leading-relaxed"
+    <div class="text-center md:text-left md:w-1/3 pb-6">
+      <h1 class="text-4xl sm:text-5xl font-extrabold mb-4 leading-snug break-words"
           style="background: linear-gradient(90deg, #fff9c4, #ffe1f0);
                  -webkit-background-clip: text;
-                 -webkit-text-fill-color: transparent;
-                 display: inline-block;
-                 padding-top: 0.1em;
-                 padding-bottom: 0.1em;">
-        सखी हेल्पलाइन पर गर्भनिरोधन सम्बंधित सहायता पाए
+                 -webkit-text-fill-color: transparent; line-height:60px">
+        सखी हेल्पलाइन पर गर्भनिरोधक संबंधित, भरोसेमंद व गोपनीयता से सलाह पाएं
       </h1>
       <a href="tel:18002025862"
-         class="inline-flex items-center gap-2 bg-[#e0116b] text-white font-semibold py-3 px-6 rounded-full shadow-md hover:bg-[#c10d5f] transition-all duration-300">
+         class="inline-flex items-center gap-3 bg-[#e0116b] text-white font-bold text-base py-3 px-6 rounded-full shadow-xl hover:bg-[#c10d5f] transition-all duration-300">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#fff6e8]" fill="currentColor" viewBox="0 0 16 16">
           <path d="M3.654 1.328a.678.678 0 0 1 .761-.181l2.261.905a.678.678 0 0 1 .396.61l.034 2.018a.678.678 0 0 1-.254.515l-1.223.9a11.603 11.603 0 0 0 5.292 5.292l.9-1.223a.678.678 0 0 1 .515-.254l2.018.034a.678.678 0 0 1 .61.396l.905 2.261a.678.678 0 0 1-.181.761l-1.451 1.451a1.745 1.745 0 0 1-1.743.45c-2.305-.765-4.545-2.407-6.717-4.58C3.39 6.813 1.748 4.573.983 2.268a1.745 1.745 0 0 1 .45-1.743L2.884.074a.678.678 0 0 1 .77.087z"/>
         </svg>
-        1800 202 5862 पर कॉल करें
+        1800 202 5862 निःशुल्क
       </a>
     </div>
 
     <!-- Right Image -->
-    <div class="md:w-1/2 flex justify-center mb-10 md:mb-0">
-      <div class="rounded-full border-4 border-[#e0116b] shadow-2xl">
-        <img src="Sakhi Mascot Upscaled.png" alt="Sakhi" class="w-[580px] rounded-full shadow-xl">
-      </div>
+    <div class="md:w-1/2 flex justify-center self-end md:self-end">
+      <img src="Sakhi Mascot Upscaled.png" alt="सखी हेल्पलाइन"
+           class="w-[1020px] max-w-[95vw] rounded-full shadow-3xl mb-[-30px]">
     </div>
   </div>
 </section>
 
 
-
-
-
-
-
-
+<br>
 <!-- Cards Heading -->
 <section class="max-w-6xl mx-auto text-center py-6 px-6">
-  <h2 class="text-2xl sm:text-3xl font-bold mb-6 mt-6 leading-relaxed"
-      style="background: linear-gradient(90deg, #c2185b, #f9a116);
-             -webkit-background-clip: text;
-             -webkit-text-fill-color: transparent;
-             display: inline-block;
-             text-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-    गर्भनिरोधन सम्बंधित जानकारी
-  </h2>
+ 
 </section>
 
 <!-- Beautiful Cards Section -->
@@ -229,7 +210,7 @@
 
   <!-- Card 1 -->
   <div class="bg-gradient-to-br from-[#fff5f5] to-[#fff0ea] rounded-2xl shadow-xl border border-[#f9a116] overflow-hidden transform transition duration-500 hover:scale-105 hover:shadow-2xl">
-    <img src="freepik__the-style-is-candid-image-photography-with-natural__22540-removebg-preview.png" alt="गर्भनिरोध क्यों" class="w-full h-80 object-cover rounded-t-2xl">
+    <img src="2.png" alt="गर्भनिरोध क्यों" class="w-full h-80 object-cover rounded-t-2xl">
     <div class="p-5">
       <h3 class="text-xl font-bold mb-3 text-[#c2185b]">शादी के बाद पहले बच्चे की प्लानिंग क्यों करें?</h3>
       <ul class="space-y-2 text-[#5a3d3d] text-sm mt-4">
@@ -242,12 +223,13 @@
 
   <!-- Card 2 -->
   <div class="bg-gradient-to-br from-[#fff0ea] to-[#fff5f5] rounded-2xl shadow-xl border border-[#c2185b] overflow-hidden transform transition duration-500 hover:scale-105 hover:shadow-2xl">
-    <img src="couple.jpg" alt="गर्भनिरोध के साधन" class="w-full h-80 object-cover rounded-t-2xl">
+    <img src="3.png" alt="गर्भनिरोध के साधन" class="w-full h-80 object-cover rounded-t-2xl">
     <div class="p-5">
-      <h3 class="text-xl font-bold mb-3 text-[#f9a116]">बच्चा होने के बाद अगले बच्चे की प्लानिंग</h3>
+      <h3 class="text-xl font-bold mb-3 text-[#f9a116]">बच्चा होने के बाद अगले बच्चे की प्लानिंग क्यू करें 
+</h3>
       <ul class="space-y-2 text-[#5a3d3d] text-sm mt-4">
-        <li class="flex items-start gap-2"><span>🎀</span> पहले बच्चे पर ध्यान देने का समय मिलता है।</li>
-        <li class="flex items-start gap-2"><span>🎀</span> माता-पिता मानसिक रूप से तैयार हो पाते हैं।</li>
+        <li class="flex items-start gap-2"><span>🎀</span> पहले बच्चे के बाद माँ के शरीर को अगले गर्भधारण के लिए तैयार होने का समय मिलता है।</li>
+        <li class="flex items-start gap-2"><span>🎀</span> माता-पिता को अपने रिश्ते को मज़बूत करने का समय मिलता है।</li>
       </ul>
       <a href="दूसरेबच्चेमेंअंतररखनेकेलाभ.html" class="mt-4 inline-block bg-[#c2185b] text-white font-bold py-2 px-4 rounded-full hover:bg-[#ad1457] transition-all duration-300 text-center">और पढ़ें</a>
     </div>
@@ -255,18 +237,18 @@
 
   <!-- Card 3 -->
   <div class="bg-gradient-to-br from-[#fff5f5] to-[#fff0ea] rounded-2xl shadow-xl border border-[#e0116b] overflow-hidden transform transition duration-500 hover:scale-105 hover:shadow-2xl">
-    <img src="freepik__the-style-is-candid-image-photography-with-natural__44642-removebg-preview.png" alt="गर्भनिरोधक के प्रकार" class="w-full h-80 object-cover rounded-t-2xl">
+    <img src="4.png" alt="गर्भनिरोधक के प्रकार" class="w-full h-80 object-cover rounded-t-2xl">
     <div class="p-5">
-      <h3 class="text-xl font-bold mb-3 text-[#c2185b] leading-snug">गर्भनिरोधक के प्रकार:<br>जाने कौन सा आपके लिए सही है</h3>
+      <h3 class="text-xl font-bold mb-3 text-[#c2185b] leading-snug">गर्भनिरोधक के प्रकार:<br>जाने कौन कौन से विकल्प उपलब्ध हैं</h3>
       <ul class="grid grid-cols-2 gap-x-4 gap-y-2 text-[#5a3d3d] text-sm mt-4">
         <li class="flex items-start gap-2"><span>🎀</span> अंतरा</li>
-        <li class="flex items-start gap-2"><span>🎀</span> छाया</li>
-        <li class="flex items-start gap-2"><span>🎀</span> माला-डी</li>
-        <li class="flex items-start gap-2"><span>🎀</span> आईयूसीडी</li>
-        <li class="flex items-start gap-2"><span>🎀</span> कंडोम</li>
-        <li class="flex items-start gap-2"><span>🎀</span> ईसी पिल</li>
-        <li class="flex items-start gap-2"><span>🎀</span> नसबंदी</li>
+        <li class="flex items-start gap-2"><span>🎀</span> ईज़ी गोली 
+</li>
+        <li class="flex items-start gap-2"><span>🎀</span> माल-एन</li>
+     
       </ul>
+            <a href="garbhnirodh-ke-saadhan.html" class="mt-4 inline-block bg-[#c2185b] text-white font-bold py-2 px-4 rounded-full hover:bg-[#ad1457] transition-all duration-300 text-center">और पढ़ें</a>
+
     </div>
   </div>
 
@@ -292,7 +274,7 @@
     <!-- Main video -->
     <div class="mb-12">
       <iframe class="w-full h-96 rounded-2xl shadow-2xl border-4 border-gradient-to-r from-[#ffc1c1] to-[#ffe1c1] hover:shadow-pink-200 transition duration-500"
-        src="https://www.youtube.com/embed/U1EEMF8OCE8?si=6c2GVYCEHyUvuca0" frameborder="0" allowfullscreen></iframe>
+        src="https://www.youtube.com/embed/7tuOMDKjl24?si=P5Bp4vX54Z8dT2Wm" frameborder="0" allowfullscreen></iframe>
     </div>
 
     <!-- Grid of additional videos -->
@@ -300,35 +282,35 @@
       <!-- Video 1 -->
       <div class="transform transition duration-500 hover:scale-105">
         <iframe class="w-full h-80 rounded-2xl shadow-lg border-2 border-gradient-to-r from-[#ffc1c1] to-[#ffe1c1]"
-          src="https://www.youtube.com/embed/7tuOMDKjl24?si=9lt_BxdrDaOG5PLC" allowfullscreen></iframe>
+          src="https://www.youtube.com/embed/lr64zB5cLKs?si=4CKeP3gFVrpxvKjd" allowfullscreen></iframe>
         <p class="text-center text-sm font-semibold mt-3">विभिन्न गर्भनिरोधक साधनों पर जानकारी</p>
       </div>
 
       <!-- Video 2 -->
       <div class="transform transition duration-500 hover:scale-105">
         <iframe class="w-full h-80 rounded-2xl shadow-lg border-2 border-gradient-to-r from-[#ffe1c1] to-[#ffc1c1]"
-          src="https://www.youtube.com/embed/lr64zB5cLKs?si=QbNhtBTI9_eov0yz" allowfullscreen></iframe>
+          src="https://www.youtube.com/embed/yvi7u4ndBZo?si=0RfRG0u3WXrB7b0c" allowfullscreen></iframe>
         <p class="text-center text-sm font-semibold mt-3">एम.पी.ए. गर्भनिरोधक इंजेक्शन पर जानकारी</p>
       </div>
 
       <!-- Video 3 -->
       <div class="transform transition duration-500 hover:scale-105">
         <iframe class="w-full h-80 rounded-2xl shadow-lg border-2 border-gradient-to-r from-[#ffc1c1] to-[#ffe1c1]"
-          src="https://www.youtube.com/embed/yvi7u4ndBZo?si=gL2omJ8AC9yhtS97" allowfullscreen></iframe>
+          src="https://www.youtube.com/embed/w4lovAkX1f4?si=17ujXyuP1mxZH0eO" allowfullscreen></iframe>
         <p class="text-center text-sm font-semibold mt-3">सेंटक्रोमन गर्भनिरोधक गोली (साप्ताहिक) पर जानकारी</p>
       </div>
 
       <!-- Video 4 -->
       <div class="transform transition duration-500 hover:scale-105">
         <iframe class="w-full h-80 rounded-2xl shadow-lg border-2 border-gradient-to-r from-[#ffe1c1] to-[#ffc1c1]"
-          src="https://www.youtube.com/embed/w4lovAkX1f4?si=HSSmfWUjTdv6vWdO" allowfullscreen></iframe>
+          src="https://www.youtube.com/embed/U1EEMF8OCE8?si=cTUw8LYBVhQogjqL" allowfullscreen></iframe>
         <p class="text-center text-sm font-semibold mt-3">मिश्रित गर्भनिरोधक गोली (रोज़ाना) पर जानकारी</p>
       </div>
     </div>
 
     <!-- CTA Button -->
     <div class="text-center mt-10">
-      <a href="https://www.youtube.com/@ipasdevelopmentfoundation"
+      <a href="https://www.youtube.com/@My_Vikalp/videos"
          class="inline-flex items-center gap-2 bg-gradient-to-r from-[#c2185b] to-[#f9a116] text-white font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-pink-400 hover:scale-105 transition duration-300"
          target="_blank">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-youtube"
@@ -348,92 +330,49 @@
   <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-6">
 
     <!-- FAQ Section -->
-    <div class="flex flex-col justify-center">
-      <!-- Gradient Heading -->
-      <h2 class="text-3xl font-bold mb-6 leading-relaxed"
-          style="background: linear-gradient(90deg, #c2185b, #f9a116);
-                 -webkit-background-clip: text;
-                 -webkit-text-fill-color: transparent;
-                 display: inline-block;">
-        अक्सर पूछे जाने वाले सवाल
-      </h2>
-
-      <div class="space-y-4">
-        <!-- FAQ Item -->
-        <details class="bg-gradient-to-r from-[#fff5f5] to-[#fff9f2] p-5 rounded-xl shadow-lg border border-[#fbb6ce] hover:shadow-pink-200 transition group">
-          <summary class="cursor-pointer font-semibold text-[#5a3d3d] group-open:text-[#c2185b]">
-            क्या गर्भनिरोधक गोलियां सुरक्षित हैं?
-          </summary>
-          <p class="mt-2 text-sm text-gray-700">हां, गर्भनिरोधक गोलियां डॉक्टरी सलाह के अनुसार सुरक्षित होती हैं।</p>
-        </details>
-
-        <details class="bg-gradient-to-r from-[#fffaf4] to-[#fff5f8] p-5 rounded-xl shadow-lg border border-[#fbb6ce] hover:shadow-pink-200 transition group">
-          <summary class="cursor-pointer font-semibold text-[#5a3d3d] group-open:text-[#c2185b]">
-            क्या IUD से प्रजनन क्षमता पर असर पड़ता है?
-          </summary>
-          <p class="mt-2 text-sm text-gray-700">नहीं, IUD हटाने के बाद प्रजनन क्षमता सामान्य रहती है।</p>
-        </details>
-
-        <details class="bg-gradient-to-r from-[#fff6f6] to-[#fff3f8] p-5 rounded-xl shadow-lg border border-[#fbb6ce] hover:shadow-pink-200 transition group">
-          <summary class="cursor-pointer font-semibold text-[#5a3d3d] group-open:text-[#c2185b]">
-            क्या कंडोम 100% सुरक्षित होते हैं?
-          </summary>
-          <p class="mt-2 text-sm text-gray-700">कंडोम सखी तरीके से उपयोग करने पर बहुत प्रभावी होते हैं।</p>
-        </details>
-
-        <details class="bg-gradient-to-r from-[#fff5f9] to-[#fffaf3] p-5 rounded-xl shadow-lg border border-[#fbb6ce] hover:shadow-pink-200 transition group">
-          <summary class="cursor-pointer font-semibold text-[#5a3d3d] group-open:text-[#c2185b]">
-            क्या गर्भनिरोधक इंजेक्शन दर्दनाक होते हैं?
-          </summary>
-          <p class="mt-2 text-sm text-gray-700">थोड़ी असहजता हो सकती है लेकिन यह अस्थायी होती है।</p>
-        </details>
-
-        <details class="bg-gradient-to-r from-[#fff7f7] to-[#fff4f1] p-5 rounded-xl shadow-lg border border-[#fbb6ce] hover:shadow-pink-200 transition group">
-          <summary class="cursor-pointer font-semibold text-[#5a3d3d] group-open:text-[#c2185b]">
-            क्या गर्भनिरोधक गोलियों का लंबे समय तक सेवन हानिकारक है?
-          </summary>
-          <p class="mt-2 text-sm text-gray-700">लंबे समय तक डॉक्टरी निगरानी में गोलियों का सेवन सुरक्षित होता है।</p>
-        </details>
+    <div class="flex flex-col justify-center items-start">
+      <!-- Heading with icon -->
+      <div class="flex items-center gap-4 mb-6">
+        <img src="doctor.png" alt="Doctor Icon"class="w-36 h-36" style="border-radius: 10px;"> <!-- increased size -->
+        <h2 class="text-3xl font-bold leading-relaxed"
+            style="background: linear-gradient(90deg, #c2185b, #f9a116);
+                   -webkit-background-clip: text;
+                   -webkit-text-fill-color: transparent;">
+          आपके सवाल, विशेषज्ञों के जवाब
+        </h2>
       </div>
+
+      <!-- CTA Button -->
+      <a href="Faq.html"
+         class="inline-block mt-4 bg-[#e0116b] text-white font-semibold px-6 py-3 rounded-full shadow-md hover:bg-[#c2185b] transition-all duration-300">
+        📖 सभी प्रश्न देखें
+      </a>
     </div>
 
     <!-- Myths Section -->
-    <div class="flex flex-col justify-center">
-      <!-- Gradient Heading -->
-      <h2 class="text-3xl font-bold mb-6 leading-relaxed"
-          style="background: linear-gradient(90deg, #e0116b, #f9a116);
-                 -webkit-background-clip: text;
-                 -webkit-text-fill-color: transparent;
-                 display: inline-block;">
-        क्या सही क्या नहीं
-      </h2>
-
-      <div class="space-y-4">
-        <!-- Myth Item -->
-        <div class="bg-gradient-to-r from-[#fffaf5] to-[#fff6f6] p-5 rounded-xl shadow-lg border border-[#e0116b] hover:shadow-pink-200 transition transform hover:scale-105">
-          <p class="font-semibold text-black">❌ मिथक: गर्भनिरोधक इंजेक्शन से स्थायी बांझपन हो जाता है।</p>
-          <p class="text-sm mt-1 text-gray-700">✅ सच: इंजेक्शन का असर अस्थायी होता है और समय के साथ प्रजनन क्षमता लौट आती है।</p>
-        </div>
-
-        <div class="bg-gradient-to-r from-[#fff5f7] to-[#fffaf3] p-5 rounded-xl shadow-lg border border-[#f9a116] hover:shadow-pink-200 transition transform hover:scale-105">
-          <p class="font-semibold text-black">❌ मिथक: कंडोम इस्तेमाल करने से आनंद कम होता है।</p>
-          <p class="text-sm mt-1 text-gray-700">✅ सच: सखी तरीके से इस्तेमाल करने पर कंडोम सुरक्षित और सहज अनुभव देते हैं।</p>
-        </div>
-
-        <div class="bg-gradient-to-r from-[#fff7f7] to-[#fff4f9] p-5 rounded-xl shadow-lg border border-[#e0116b] hover:shadow-pink-200 transition transform hover:scale-105">
-          <p class="font-semibold text-black">❌ मिथक: IUD केवल बच्चों के बाद ही लगाया जा सकता है।</p>
-          <p class="text-sm mt-1 text-gray-700">✅ सच: IUD किसी भी महिला के लिए उपयुक्त हो सकता है, चाहे वह मां बनी हो या नहीं।</p>
-        </div>
-
-        <div class="bg-gradient-to-r from-[#fff9f4] to-[#fff6f7] p-5 rounded-xl shadow-lg border border-[#f9a116] hover:shadow-pink-200 transition transform hover:scale-105">
-          <p class="font-semibold text-black">❌ मिथक: गर्भनिरोधक गोलियां मोटापा बढ़ाती हैं।</p>
-          <p class="text-sm mt-1 text-gray-700">✅ सच: हर महिला पर प्रभाव अलग होता है, लेकिन अधिकतर महिलाओं को कोई बड़ा फर्क नहीं पड़ता।</p>
-        </div>
+    <div class="flex flex-col justify-center items-start">
+      <!-- Heading with icon -->
+      <div class="flex items-center gap-4 mb-6">
+        <img src="myths.png" alt="Myth Fact Icon" class="w-36 h-36" style="border-radius: 10px;"> <!-- increased size -->
+        <h2 class="text-3xl font-bold leading-relaxed"
+            style="background: linear-gradient(90deg, #e0116b, #f9a116);
+                   -webkit-background-clip: text;
+                   -webkit-text-fill-color: transparent;">
+          क्या सही क्या नहीं
+        </h2>
       </div>
+
+      <!-- CTA Button -->
+      <a href="FactsandMyths.html"
+         class="inline-block mt-4 bg-[#e0116b] text-white font-semibold px-6 py-3 rounded-full shadow-md hover:bg-[#c2185b] transition-all duration-300">
+        🔍 मिथक और सच जानें
+      </a>
     </div>
 
   </div>
 </section>
+
+
 
 
 <!-- Unique Advisory Section -->
@@ -465,7 +404,7 @@
           style="background: linear-gradient(90deg, #e0116b, #f9a116);
                  -webkit-background-clip: text;
                  -webkit-text-fill-color: transparent;
-                 display: inline-block;">
+                 display: inline-block; line-height: 60px;">
         📞 सखी हेल्पलाइन
       </h2>
       <p class="text-lg text-[#5a3d3d] mt-4 leading-relaxed">
@@ -480,7 +419,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M3 5a2 2 0 012-2h2a2 2 0 012 2v3a1 1 0 01-.293.707L7 10l3.5 3.5 1.793-1.793A1 1 0 0113 11h3a2 2 0 012 2v2a2 2 0 01-2 2h-1.586a1 1 0 00-.707.293L12 20l-3.5-3.5 1.793-1.793A1 1 0 0110 14H7a2 2 0 01-2-2V5z"/>
           </svg>
-          1800 202 5862 पर कॉल करें
+          1800 202 5862 निशुल्क
         </a>
       </div>
     </div>
@@ -496,55 +435,48 @@
 
 
 
-<section class="w-full bg-gradient-to-br from-[#fff0f5] to-[#fffaf0] py-16 px-6">
+<section class="w-full bg-gradient-to-br from-[#fff0f5] to-[#fffaf0] py-16 px-6 sm:px-8">
   <div class="max-w-4xl mx-auto text-center">
+    
     <!-- Gradient Heading -->
-    <h2 class="text-3xl sm:text-4xl font-bold mb-8 leading-relaxed"
+    <h2 class="text-3xl sm:text-4xl font-bold mb-10 leading-relaxed"
         style="background: linear-gradient(90deg, #e0116b, #f9a116);
                -webkit-background-clip: text;
                -webkit-text-fill-color: transparent;
                display: inline-block;">
-      विकल्प परियोजना
+      सखी हेल्पलाइन, विकल्प परियोजना द्वारा संचालित है 
     </h2>
     
     <div class="text-left text-[#5a3d3d] text-lg leading-relaxed space-y-6">
 
-      <!-- Point 1 -->
-      <div class="flex items-start gap-4 bg-[#fff7f9] p-4 rounded-xl shadow hover:shadow-md transition">
+      <!-- Point 1: Project Visual -->
+      <div class="flex items-start gap-4 bg-[#fff7f9] p-5 rounded-xl shadow border border-[#fce3e8] hover:shadow-md transition group">
         <div class="w-10 h-10 flex items-center justify-center rounded-full bg-[#f9a1a1]/20">
-          <img src="https://cdn-icons-png.flaticon.com/128/5300/5300713.png" alt="pink map icon" class="w-6 h-6">
+          <img src="https://cdn-icons-png.flaticon.com/128/3135/3135715.png" alt="Project icon" class="w-6 h-6 group-hover:scale-110 transition-transform" aria-hidden="true">
         </div>
-        <p>विकल्प परियोजना मध्य प्रदेश और राजस्थान में IDF के सहयोग से संचालित की जा रही है।</p>
+        <p>विकल्प परियोजना मध्यप्रदेश और राजस्थान में आईपास डेवलपमेंट फाउंडेशन के सहयोग से संचालित की जा रही है | यह परियोजना राज्यों में सरकार के परिवार नियोजन कार्यक्रम को सहयोग देती है| </p>
       </div>
 
-      <!-- Point 2 -->
-      <div class="flex items-start gap-4 bg-[#fff7f2] p-4 rounded-xl shadow hover:shadow-md transition">
+      <!-- Point 2: Couple Visual -->
+      <div class="flex items-start gap-4 bg-[#fff7f2] p-5 rounded-xl shadow border border-[#fcdcc9] hover:shadow-md transition group">
         <div class="w-10 h-10 flex items-center justify-center rounded-full bg-[#f9d7a1]/20">
-          <img src="https://cdn-icons-png.flaticon.com/128/5507/5507164.png" alt="pink target icon" class="w-6 h-6">
+          <img src="https://cdn-icons-png.flaticon.com/128/4030/4030303.png" alt="Couple icon" class="w-6 h-6 group-hover:scale-110 transition-transform" aria-hidden="true">
         </div>
-        <p>इसका मुख्य लक्ष्य है कम संतान वाले जोड़ों (0-1 बच्चे) में अस्थायी गर्भनिरोधक साधनों की मांग एवं प्रयोग को बढ़ावा देना।</p>
+        <p>इसका लक्ष्य है युवा दंपतियों में बेहतर स्वास्थ्य के लिए परिवार नियोजन के प्रति जागरूकता बढ़ाना| </p>
       </div>
 
-      <!-- Point 3 -->
-      <div class="flex items-start gap-4 bg-[#fff6f8] p-4 rounded-xl shadow hover:shadow-md transition">
-        <div class="w-10 h-10 flex items-center justify-center rounded-full bg-[#f9a1f0]/20">
-          <img src="https://cdn-icons-png.flaticon.com/128/3871/3871786.png" alt="pink kit icon" class="w-6 h-6">
-        </div>
-        <p>यह परियोजना सरकारी स्कीम्स जैसे <strong>नई पहल किट (NPK)</strong> और <strong>सास-बहू सम्मेलन (SBS)</strong> का उपयोग करती है।</p>
-      </div>
-
-      <!-- Point 4 -->
-      <div class="flex items-start gap-4 bg-[#fff9f7] p-4 rounded-xl shadow hover:shadow-md transition">
+      <!-- Point 4: Phone/Helpline Visual -->
+      <div class="flex items-start gap-4 bg-[#fff9f7] p-5 rounded-xl shadow border border-[#f8c7d7] hover:shadow-md transition group">
         <div class="w-10 h-10 flex items-center justify-center rounded-full bg-[#f9a1d7]/20">
-          <img src="https://cdn-icons-png.flaticon.com/128/5087/5087579.png" alt="pink support icon" class="w-6 h-6">
+          <img src="https://cdn-icons-png.flaticon.com/128/5973/5973800.png" alt="Helpline icon" class="w-6 h-6 group-hover:scale-110 transition-transform" aria-hidden="true">
         </div>
         <p>टोल-फ्री हेल्पलाइन सप्ताह के सातों दिन परामर्श और मार्गदर्शन प्रदान करती है।</p>
       </div>
 
-      <!-- Point 5 -->
-      <div class="flex items-start gap-4 bg-[#fff6f5] p-4 rounded-xl shadow hover:shadow-md transition">
+      <!-- Point 5: Woman Visual -->
+      <div class="flex items-start gap-4 bg-[#fff6f5] p-5 rounded-xl shadow border border-[#fceacc] hover:shadow-md transition group">
         <div class="w-10 h-10 flex items-center justify-center rounded-full bg-[#f9e1a1]/20">
-          <img src="https://cdn-icons-png.flaticon.com/128/2950/2950653.png" alt="pink empowerment icon" class="w-6 h-6">
+          <img src="https://cdn-icons-png.flaticon.com/128/4140/4140048.png" alt="Empowered woman icon" class="w-6 h-6 group-hover:scale-110 transition-transform" aria-hidden="true">
         </div>
         <p>यह पहल महिलाओं को जानकारी आधारित निर्णय लेने में सशक्त बनाती है और स्वास्थ्य सेवाओं की पहुँच बढ़ाती है।</p>
       </div>
@@ -582,12 +514,11 @@
     
     <h2 class="text-xl sm:text-2xl font-semibold text-white pb-6"
         style="text-shadow: 1px 1px 4px rgba(0,0,0,0.3);">
-      आपकी साथी, आपकी सलाहकार – सुरक्षित भविष्य की ओर सखी
-    </h2>
+आपकी सखी, आपकी सलाहकार – स्वास्थ्य और सुरक्षित भविष्य की ओर    </h2>
 
     <a href="tel:18002025862"
        class="inline-flex items-center gap-2 bg-gradient-to-r from-[#FFDB58] to-[#ffe680] text-[#e0116b] font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-yellow-300 hover:scale-105 transition-all duration-300">
-      📞 1800 202 5862 पर कॉल करें
+      📞 1800 202 5862 निशुल्क
     </a>
   </div>
 </section>
