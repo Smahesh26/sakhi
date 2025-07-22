@@ -7,9 +7,15 @@
   <meta name="description" content="सखी हेल्पलाइन पर गर्भनिरोधन सम्बंधित सलाह। 1800 202 5862 पर कॉल करें।">
   <meta name="keywords" content="गर्भनिरोधन, परिवार नियोजन, हेल्पलाइन, Sakhi Helpline">
   <meta name="author" content="Sakhi Helpline">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="favicon.png" type="image/png">
+
   <style>
+    body {
+      font-family: 'Baloo 2', cursive;
+    }
     .glow-button {
       box-shadow: 0 0 20px #e0116b;
       transition: box-shadow 0.3s ease-in-out;
@@ -42,52 +48,56 @@
 <body class="bg-gray-100 font-sans">
 
   <!-- Header -->
-  <section class="w-full bg-gradient-to-r from-[#FF5A5F] to-[#FF9900] py-10 px-6">
-    <div class="max-w-6xl mx-auto flex flex-col items-center text-center relative">
-      <a href="index.html" class="absolute left-4 top-4 text-white font-semibold"><i class="fas fa-arrow-left"></i> Back</a>
-      <a href="index.html"><img src="logo.png" alt="Sakhi Helpline Logo" class="w-24 sm:w-32 mb-4 hover:scale-105 transition-transform duration-300"></a>
-      <h2 class="text-xl sm:text-2xl font-semibold text-white">आपकी सखी, आपकी सलाहकार – स्वास्थ्य और सुरक्षित भविष्य की ओर</h2>
-      <div class="mt-4 flex justify-center items-center gap-4">
-        <a href="tel:18002025862" class="glow-button bg-[#FFDB58] text-[#e0116b] font-bold py-3 px-6 rounded-full inline-block">📞 1800 202 5862 निःशुल्क</a>
-      </div>
+  <!-- Header -->
+<section class="w-full bg-gradient-to-r from-[#FF5A5F] to-[#FF9900] py-12 px-6">
+  <div class="max-w-6xl mx-auto flex flex-col items-center text-center">
+    <a href="index.html">
+      <img src="logo.png" alt="Sakhi Helpline Logo" class="w-32 sm:w-40 mb-6 hover:scale-105 transition-transform duration-300">
+    </a>
+    <h2 class="text-2xl sm:text-3xl font-semibold text-white leading-relaxed mb-6">
+      आपकी सखी, आपकी सलाहकार – स्वास्थ्य और सुरक्षित भविष्य की ओर
+    </h2>
+    <div class="flex flex-wrap justify-center items-center gap-4">
+      <a href="index.html" class="glow-button bg-[#FFDB58] text-[#e0116b] font-bold py-3 px-6 rounded-full inline-flex items-center gap-2">
+        🔙 वापस जाएं
+      </a>
+      <a href="tel:18002025862" class="glow-button bg-[#FFDB58] text-[#e0116b] font-bold py-3 px-6 rounded-full inline-flex items-center gap-2">
+        📞 1800 202 5862 निःशुल्क
+      </a>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- Delay Benefits Section -->
-  <section class="w-full bg-[#fff0f0] py-16 px-6">
+  <section class="w-full bg-[#fff0f0] py-20 px-6">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold text-[#e0116b] mb-8 text-center">पहले बच्चे में देरी के लाभ</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-white rounded-lg shadow p-4 text-center">
-          <img src="image.png" alt="Couple" class="w-24 mx-auto mb-3">
-          <p>पति-पत्नी का आपसी रिश्ता मजबूत बनने का समय मिलता है।</p>
+      <h2 class="text-3xl sm:text-4xl font-bold text-[#e0116b] mb-12 text-center">पहले बच्चे में देरी के लाभ</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-all duration-300">
+          <img src="image.png" alt="Couple" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+          <p class="text-lg text-gray-800">पति-पत्नी का आपसी रिश्ता मजबूत बनने का समय मिलता है।</p>
         </div>
-        <div class="bg-white rounded-lg shadow p-4 text-center">
-          <img src="newbahu.png" alt="Family" class="w-24 mx-auto mb-3">
-          <p>नई बहू को परिवार को समझने का अवसर मिलता है।</p>
+        <div class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-all duration-300">
+          <img src="newbahu.png" alt="Family" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+          <p class="text-lg text-gray-800">नई बहू को परिवार को समझने का अवसर मिलता है।</p>
         </div>
-        <div class="bg-white rounded-lg shadow p-4 text-center">
-          <img src="savings.png" alt="Savings" class="w-24 mx-auto mb-3">
-          <p>पैसे की बचत करने का समय मिलता है।</p>
+        <div class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-all duration-300">
+          <img src="savings.png" alt="Savings" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+          <p class="text-lg text-gray-800">पैसे की बचत करने का समय मिलता है।</p>
         </div>
-        <div class="bg-white rounded-lg shadow p-4 text-center">
-          <img src="women.png" alt="Mother" class="w-24 mx-auto mb-3">
-          <p>गर्भधारण और मातृत्व के लिए शारीरिक रूप से तैयार होने का समय मिलता है।</p>
+        <div class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-all duration-300">
+          <img src="women.png" alt="Mother" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+          <p class="text-lg text-gray-800">गर्भधारण और मातृत्व के लिए शारीरिक रूप से तैयार होने का समय मिलता है।</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Testimonial Video -->
-  <section class="py-12 bg-[#fff0f0] text-center">
-    <h2 class="text-2xl font-bold text-[#e0116b] mb-4">देखिए हमारी सखी की कहानी</h2>
-    <iframe class="w-full max-w-3xl aspect-video mx-auto rounded shadow-lg" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="सखी का अनुभव" allowfullscreen></iframe>
-  </section>
-
-  <!-- Footer Call to Action -->
-  <section class="w-full bg-[#e0116b] py-10 px-6">
+  <!-- Footer CTA -->
+  <section class="w-full bg-[#e0116b] py-14 px-6">
     <div class="max-w-6xl mx-auto flex flex-col items-center text-center">
-      <h2 class="text-xl sm:text-2xl font-semibold text-white pb-6">आपकी सखी, आपकी सलाहकार – स्वास्थ्य और सुरक्षित भविष्य की ओर</h2>
+      <h2 class="text-2xl sm:text-3xl font-semibold text-white mb-6">आपकी सखी, आपकी सलाहकार – स्वास्थ्य और सुरक्षित भविष्य की ओर</h2>
       <a href="tel:18002025862" class="inline-flex items-center gap-2 bg-[#FFDB58] text-[#e0116b] font-bold py-3 px-6 rounded-full shadow-md hover:bg-[#fcd850] transition-all duration-300">📞 1800 202 5862 निःशुल्क</a>
     </div>
   </section>
