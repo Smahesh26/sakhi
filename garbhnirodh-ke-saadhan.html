@@ -8,29 +8,77 @@
   <link rel="icon" href="favicon.png" type="image/png">
 
   <!-- Font & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
+  
   <!-- Tailwind Custom Theme -->
-   <style>
-  .gradient-card-1 {
-    background: linear-gradient(to right, #f9f1ff, #f0e3ff);
-  }
-  .gradient-card-2 {
-    background: linear-gradient(to right, #fff7ea, #ffdcc1);
-  }
-  .gradient-card-3 {
-    background: linear-gradient(to right, #e0f6fa, #f1fcff);
-  }
-  .gradient-card-4 {
-    background: linear-gradient(to right, #fcfce4, #f8f4bb);
-  }
-  .gradient-card-5 {
-    background: linear-gradient(to right, #ebfbe7, #c3f4c8);
-  }
-</style>
   <style>
+    .gradient-card-1 {
+      background: linear-gradient(to right, #f9f1ff, #f0e3ff);
+    }
+    .gradient-card-2 {
+      background: linear-gradient(to right, #fff7ea, #ffdcc1);
+    }
+    .gradient-card-3 {
+      background: linear-gradient(to right, #e0f6fa, #f1fcff);
+    }
+    .gradient-card-4 {
+      background: linear-gradient(to right, #fcfce4, #f8f4bb);
+    }
+    .gradient-card-5 {
+      background: linear-gradient(to right, #ebfbe7, #c3f4c8);
+    }
+    .gradient-card-6 {
+      background: linear-gradient(to right, #f5e5ec, #e7bed6);
+    }
+    .gradient-card-7 {
+      background: linear-gradient(to right, #fdeee3, #fbcebb);
+    }
+    .gradient-card-8 {
+      background: linear-gradient(to right, #eee7f6, #d1c4e9);
+    }
+
+    /* Scroll to Top Button */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+      background-color: #e0116b;
+      color: white !important;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(224, 17, 107, 0.4);
+      border: none;
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    #scrollTopBtn:hover {
+      background-color: #c2185b;
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(224, 17, 107, 0.6);
+    }
+    
+    #scrollTopBtn i {
+      color: white !important;
+      font-weight: bold;
+    }
+    
+    #scrollTopBtn.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
     body {
       font-family: 'Baloo 2', cursive;
     }
@@ -58,15 +106,6 @@
       max-height: 160px;
       margin: 0 auto;
     }
-      .gradient-card-6 {
-    background: linear-gradient(to right, #f5e5ec, #e7bed6);
-  }
-  .gradient-card-7 {
-    background: linear-gradient(to right, #fdeee3, #fbcebb);
-  }
-  .gradient-card-8 {
-    background: linear-gradient(to right, #eee7f6, #d1c4e9);
-  }
   </style>
 </head>
 <body class="bg-pink-50 text-gray-800">
@@ -100,7 +139,7 @@
   <div class="flex flex-col gap-4 bg-white p-6 rounded-2xl shadow-lg gradient-card-0"        style="background: linear-gradient(135deg, #ffd1dc, #ffe7ae, #d1f7c4, #c9e4f6, #e0ccff);">
 
     <p class="text-lg leading-relaxed">
-      गर्भनिरोधक साधन दो प्रकार के होते हैं - अस्थाई व स्थाई। अस्थाई साधन वो हैं, जो पहले बच्चे में देरी या दो बच्चों में अंतर रखने के लिए प्रयोग किये जाते हैं। और अगर आगे बच्चे नहीं चाहियें, तब भी इनका इस्तेमाल किया जा सकता है। अस्थाई साधन है - अंतरा सुई, छाया गोली, माला-एन गोली, आईयूसीडी, कंडोम (निरोध), ईज़ी गोली (आपातकालीन गोली)। और यदि निश्चित रूप से भविष्य में बच्चे नहीं चाहते हैं, तो महिला या पुरुष नसबंदी ऑपरेशन भी करवा सकते हैं, जो कि स्थाई साधन हैं।
+      गर्भनिरोधक साधन दो प्रकार के होते हैं - अस्थाई व स्थाई। अस्थाई साधन वो हैं, जो पहले बच्चे में देरी या दो बच्चों में अंतर रखने के लिए प्रयोग किये जाते हैं। और अगर आगे बच्चे नहीं चाहियें, तब भी इनका इस्तेमाल किया जा सकता है। अस्थाई साधन है - अंतरा सुई, छाया गोली, माला-एन गोली, आईयूसीडी, कंडोम (निरोध), ईज़ी गोली (आपातकालीन गोली)। और यदि निश्चित रूप से भविष्य में बच्चे नहीं चाहते हैं, तो महिला या पुरुष नसबंदी ऑपरेशन भी करवा सकते हैं, जो कि स्थाई साधन हैं。
     </p>
 
     <p class="text-lg leading-relaxed">
@@ -733,7 +772,30 @@
       <a href="tel:18002025862" class="inline-flex items-center gap-2 bg-[#FFDB58] text-[#e0116b] font-bold py-3 px-6 rounded-full shadow-md hover:bg-[#fcd850] transition-all duration-300">📞 1800 202 5862 निःशुल्क</a>
     </div>
   </section>
+  <!-- Scroll to Top Button -->
+  <div id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="ऊपर जाएं">
+    <i class="fas fa-arrow-up" style="color: white !important;"></i>
+  </div>
 
+<script>
+// Show/Hide scroll to top button
+window.addEventListener('scroll', function() {
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  if (window.pageYOffset > 300) {
+    scrollBtn.classList.add('show');
+  } else {
+    scrollBtn.classList.remove('show');
+  }
+});
+
+// Smooth scroll to top function
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+</script>
 
 </body>
 </html>

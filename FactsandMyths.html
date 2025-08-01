@@ -9,13 +9,55 @@
   <link rel="icon" href="favicon.png" type="image/png">
 
   <style>
-    body { font-family: 'Segoe UI', sans-serif; }
+    body { font-family: 'Baloo 2', cursive; }
+    h2 {
+      font-family: 'Baloo 2', cursive !important;
+    }
     .gradient-header { background: linear-gradient(90deg, #FF5A5F 0%, #FF9900 100%); }
     .primary-btn { background-color: #FFDB58; color: #e0116b; }
     .primary-btn:hover { background-color: #fcd850; }
     .faq-item { border-radius: 1rem; background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.1); padding: 1.5rem; margin-bottom: 1rem; }
     .faq-item h3 { color: #e0116b; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
     .faq-item p { color: #555; line-height: 1.6; }
+
+    /* Scroll to Top Button */
+   #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+      background-color: #e0116b;
+      color: white !important;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(224, 17, 107, 0.4);
+      border: none;
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    #scrollTopBtn:hover {
+      background-color: #c2185b;
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(224, 17, 107, 0.6);
+    }
+    
+    #scrollTopBtn i {
+      color: white !important;
+      font-weight: bold;
+    }
+    
+    #scrollTopBtn.show {
+      opacity: 1;
+      visibility: visible;
+    }
   </style>
 </head>
 <body class="bg-pink-50 text-gray-800">
@@ -26,8 +68,8 @@
     <a href="index.html">
       <img src="logo.png" alt="Sakhi Helpline Logo" class="w-32 sm:w-40 mb-6 hover:scale-105 transition-transform duration-300">
     </a>
-    <h2 class="text-2xl sm:text-3xl font-semibold text-white leading-relaxed mb-6">
-      आपकी सखी, आपकी सलाहकार – स्वास्थ्य और सुरक्षित भविष्य की ओर
+    <h2 class="text-2xl sm:text-3xl font-semibold text-white leading-relaxed mb-6" style="font-family: Baloo 2;">
+      आपकी सखी, आपकी सलाहकार – स्वस्थ और सुरक्षित भविष्य की ओर
     </h2>
     <div class="flex flex-wrap justify-center items-center gap-4">
       <a href="index.html" class="glow-button bg-[#FFDB58] text-[#e0116b] font-bold py-3 px-6 rounded-full inline-flex items-center gap-2">
@@ -272,6 +314,31 @@
       <a href="tel:18002025862" class="inline-flex items-center gap-2 bg-[#FFDB58] text-[#e0116b] font-bold py-3 px-6 rounded-full shadow-md hover:bg-[#fcd850] transition-all duration-300">📞 1800 202 5862 निःशुल्क</a>
     </div>
   </section>
+
+  <!-- Scroll to Top Button -->
+  <div id="scrollTopBtn" onclick="scrollToTop()" title="ऊपर जाएं">
+    ↑
+  </div>
+
+  <script>
+    // Show/Hide scroll to top button
+    window.addEventListener('scroll', function() {
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      if (window.pageYOffset > 300) {
+        scrollBtn.classList.add('show');
+      } else {
+        scrollBtn.classList.remove('show');
+      }
+    });
+
+    // Smooth scroll to top function
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  </script>
 
 </body>
 </html>
