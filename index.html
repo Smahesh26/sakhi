@@ -90,6 +90,43 @@
     @media (max-width:640px){ .form-card { padding: 1rem; } }
   </style>
  
+<style>
+.input-field {
+  background: #fff;
+  border: 1.5px solid #f3d2da;
+  padding: .7rem .9rem;
+  border-radius: .7rem;
+  box-shadow: 0 1px 3px rgba(224,17,107,0.04) inset;
+  transition: box-shadow .15s, border-color .15s, transform .08s;
+  font-size: 1rem;
+}
+.input-field:focus {
+  outline: none;
+  border-color: #e0116b;
+  box-shadow: 0 0 0 2px #f9a11633;
+  background: #fff9fa;
+}
+.form-card {
+  max-width: 720px;
+}
+.consent-toggle .option {
+  min-width: 100px;
+  cursor: pointer;
+  transition: all .15s;
+  font-size: 1rem;
+}
+.consent-toggle .option.active {
+  background: linear-gradient(90deg,#e0116b,#f9a116);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 6px 18px rgba(224,17,107,0.13);
+  transform: translateY(-2px) scale(1.04);
+}
+@media (max-width: 640px) {
+  .form-card { padding: 1rem; }
+  .input-field { font-size: .95rem; }
+}
+</style>
 
 </head>
 <body class="bg-gray-100 font-sans">
@@ -207,7 +244,7 @@
     </div>
 
     <!-- Right Image -->
-    <div class="md:w-1/2 flex justify-center self-end md:self-end mt-6 md:mt-0">
+    <div class="md:w-1/2 flex justify-center self-end md:self-end mt-6 mb-2 md:mt-0">
       <img src="Sakhi Mascot Upscaled.png" alt="सखी हेल्पलाइन"
            class="w-[920px] max-w-[95vw] rounded-full shadow-3xl">
     </div>
@@ -498,7 +535,7 @@
       <p class="text-lg text-[#5a3d3d] mt-4 leading-relaxed">
         पहले बच्चे में देरी और दो बच्चों में अंतर रखने के लिए आप 
         <strong class="text-[#e0116b]">सखी हेल्पलाइन</strong> पर कॉल कर सकते हैं।<br />
-        परामर्शदाता आपको <strong>नि:शुल्क, गोपनीय और भरोसेमंद</strong> सलाह देंगे ताकि आप अपने परिवार की योजना बेहतर बना सकें।
+        परामर्शदाता आपको <strong>नि:शुल्क, गोपनीय और भरोसेमंद</strong> सलाह देंगे ताकि आप अपने परिवार की योजना बेहतर बना सकें。
       </p>
       <div class="mt-6">
         <a href="tel:18002025862"
@@ -573,91 +610,125 @@
 </section>
 
 <!-- Contact Form Section -->
-<div class="bg-gradient-to-br from-[#fff6e8] to-[#fff1eb]">
-<br>
+<!-- ...existing code... -->
 <section class="max-w-3xl mx-auto my-12 px-4">
-  <div class="form-card relative rounded-2xl shadow-xl p-6 sm:p-8 border-2 border-[#fee8ee]" style="align-items: center;">
-     <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-[#e0116b] to-[#f9a116] text-white px-4 py-1 rounded-full text-lg font-bold shadow-lg">
-    संपर्क फ़ॉर्म
-  </div>
+  <div class="form-card relative bg-white rounded-2xl shadow-xl p-6 sm:p-10 border-2 border-[#fee8ee] flex flex-col items-center">
+    <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-[#e0116b] to-[#f9a116] text-white px-6 py-2 rounded-full text-lg font-bold shadow-lg tracking-wide">
+      संपर्क फ़ॉर्म
+    </div>
 
-    <p>
-      <!-- <span class="text-[#e0116b]">➜</span> यदि आप चाहते हैं कि सखी हेल्पलाइन आपके द्वारा प्रदान किए गए मोबाइल नंबर पर सूचना देने हेतु कॉल करे, तो कृपया अपनी सहमति देने के लिए "हाँ" चुनें।<br> -->
-      <span class="text-[#e0116b]">➜</span> प्रश्न / संदेश: कृपया अपना प्रश्न अथवा संदेश नीचे लिखें।<br>
-      <span class="text-[#e0116b]">➜</span> यदि आपके कोई और प्रश्न हैं तो फॉर्म भरकर सबमिट करें।
+    <p class="text-[#5a3d3d] mt-12 mb-6 text-base text-center w-full">
+      <span class="text-[#e0116b]">➜</span> यदि आप चाहते हैं कि सखी हेल्पलाइन आपके द्वारा प्रदान किए गए मोबाइल नंबर पर सूचना देने हेतु कॉल करे, तो कृपया अपनी सहमति देने के लिए "हाँ" चुनें।<br>
+      <span class="text-[#e0116b]">➜</span> प्रश्न / संदेश: कृपया अपना प्रश्न अथवा संदेश नीचे लिखें। यदि आपके कोई और प्रश्न हैं तो फॉर्म भरकर सबमिट करें।
     </p>
-<br>
-    <form id="contactForm" action="contact.php" method="POST" class="space-y-5" novalidate>
+
+    <form id="contactForm" action="contact.php" method="POST" class="space-y-7 w-full" novalidate>
       <!-- 1. व्यक्तिगत जानकारी -->
       <div>
-        <h3 class="font-semibold text-[#c2185b] mb-3 text-center">1. व्यक्तिगत जानकारी</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <h3 class="font-semibold text-[#c2185b] mb-4 text-center text-lg">1. व्यक्तिगत जानकारी</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
           <div>
-            <label for="name" class="block text-sm font-bold">नाम <span class="text-[#e0116b]">*</span></label>
-            <input id="name" name="name" required class="input-field mt-1 w-full" placeholder="अपना नाम लिखें" aria-required="true">
-            <p id="nameError" class="text-red-600 text-sm mt-1 hidden">कृपया अपना नाम दर्ज करें।</p>
+            <label for="name" class="block text-sm font-bold mb-1">नाम <span class="text-[#e0116b]">*</span></label>
+            <input id="name" name="name" required class="input-field w-full" placeholder="अपना नाम लिखें" aria-required="true">
+            <p id="nameError" class="text-red-600 text-xs mt-1 hidden">कृपया अपना नाम दर्ज करें।</p>
           </div>
-
           <div>
-            <label for="phone" class="block text-sm font-bold">मोबाइल नंबर <span class="text-[#e0116b]">*</span></label>
+            <label for="phone" class="block text-sm font-bold mb-1">मोबाइल नंबर <span class="text-[#e0116b]">*</span></label>
             <input id="phone" name="phone" type="tel" pattern="^[6-9]\d{9}$" required
-                   class="input-field mt-1 w-full" placeholder="१० अंकों का मोबाइल नंबर" aria-describedby="phoneHelp phoneError" aria-required="true">
+                   class="input-field w-full" placeholder="१० अंकों का मोबाइल नंबर" aria-describedby="phoneHelp phoneError" aria-required="true">
             <p id="phoneHelp" class="text-xs text-gray-500 mt-1">भारत में मान्य नंबर: 10 अंकों, 6-9 से शुरू</p>
-            <p id="phoneError" class="text-red-600 text-sm mt-1 hidden">कृपया मान्य मोबाइल नंबर (10 अंक, 6-9 से शुरू) डालें।</p>
+            <p id="phoneError" class="text-red-600 text-xs mt-1 hidden">कृपया मान्य मोबाइल नंबर (10 अंक, 6-9 से शुरू) डालें।</p>
           </div>
-
           <div>
-            <label for="city" class="block text-sm font-bold">शहर</label>
-            <input id="city" name="city" class="input-field mt-1 w-full" placeholder="शहर">
-            <p id="cityError" class="text-red-600 text-sm mt-1 hidden">कृपया शहर सही लिखें।</p>
+            <label for="city" class="block text-sm font-bold mb-1">ज़िला</label>
+            <input id="city" name="city" class="input-field w-full" placeholder="शहर">
+            <p id="cityError" class="text-red-600 text-xs mt-1 hidden">कृपया शहर सही लिखें।</p>
           </div>
         </div>
       </div>
 
       <!-- 2. अनुमति (Consent) -->
       <div>
-        <h3 class="font-semibold text-[#c2185b] mb-2 text-center">2. अनुमति (Consent)</h3>
-        <p><span class="text-[#e0116b]">➜</span> यदि आप चाहते हैं कि सखी हेल्पलाइन आपके द्वारा दिए गए मोबाइल नंबर पर कॉल करे, तो "हाँ" चुनें।</p>
-        <div class="consent-toggle flex gap-3" role="radiogroup" aria-label="Consent">
-          <button type="button" data-value="हाँ" class="option inline-flex items-center justify-center px-4 py-2 rounded-full border border-[#f3d2da] text-[#6b2940] bg-white hover:shadow-sm">हाँ</button>
-          <button type="button" data-value="नहीं" class="option inline-flex items-center justify-center px-4 py-2 rounded-full border border-[#f3d2da] text-[#6b2940] bg-white hover:shadow-sm">नहीं</button>
+        <h3 class="font-semibold text-[#c2185b] mb-3 text-center text-lg">2. अनुमति (Consent)</h3>
+        <p class="text-sm text-[#5a3d3d] mb-2 text-center"><span class="text-[#e0116b]">➜</span> यदि आप चाहते हैं कि सखी हेल्पलाइन आपके द्वारा दिए गए मोबाइल नंबर पर कॉल करे, तो "हाँ" चुनें।</p>
+        <div class="consent-toggle flex justify-center gap-5 mb-2" role="radiogroup" aria-label="Consent">
+          <button type="button" data-value="हाँ" class="option inline-flex items-center justify-center px-6 py-2 rounded-full border border-[#f3d2da] text-[#6b2940] bg-white hover:shadow-sm font-semibold">हाँ</button>
+          <button type="button" data-value="नहीं" class="option inline-flex items-center justify-center px-6 py-2 rounded-full border border-[#f3d2da] text-[#6b2940] bg-white hover:shadow-sm font-semibold">नहीं</button>
         </div>
         <input type="hidden" name="consent" id="consentInput" required>
-        <p id="consentError" class="text-red-600 text-sm mt-1 hidden">कृपया अनुमति चुनें।</p>
+        <p id="consentError" class="text-red-600 text-xs mt-1 hidden text-center">कृपया अनुमति चुनें।</p>
+
+        <!-- Conditional field: Convenient day/time for call -->
+        <div id="callTimeField" class="mt-4 hidden">
+          <label for="call_time" class="block text-sm font-bold mb-1">हेल्पलाइन से कॉल का आपका सुविधाजनक दिन और समय बताएँ</label>
+          <input type="text" id="call_time" name="call_time" class="input-field w-full" placeholder="जैसे: सोमवार, शाम 5 से 7 बजे">
+        </div>
       </div>
 
       <!-- 3. प्रश्न / संदेश -->
       <div>
-        <h3 class="font-semibold text-[#c2185b] mb-2 text-center">3. प्रश्न / संदेश</h3>
-        <textarea id="message" name="message" rows="4" required class="input-field mt-1 w-full" placeholder="अपना प्रश्न या संदेश यहाँ लिखें"></textarea>
-        <p id="messageError" class="text-red-600 text-sm mt-1 hidden">कृपया प्रश्न या संदेश लिखें।</p>
+        <h3 class="font-semibold text-[#c2185b] mb-3 text-center text-lg">3. प्रश्न / संदेश</h3>
+        <textarea id="message" name="message" rows="4" required class="input-field w-full" placeholder="अपना प्रश्न या संदेश यहाँ लिखें"></textarea>
+        <p id="messageError" class="text-red-600 text-xs mt-1 hidden">कृपया प्रश्न या संदेश लिखें।</p>
       </div>
 
       <!-- 4. अतिरिक्त प्रश्न -->
       <div>
-        <h3 class="font-semibold text-[#c2185b] mb-2 text-center">4. अतिरिक्त प्रश्न (यदि कोई)</h3>
-        <textarea id="extra" name="extra" rows="3" class="input-field mt-1 w-full" placeholder="यदि आपके और प्रश्न हैं तो यहाँ लिखें"></textarea>
+        <h3 class="font-semibold text-[#c2185b] mb-3 text-center text-lg">4. अतिरिक्त प्रश्न (यदि कोई)</h3>
+        <textarea id="extra" name="extra" rows="3" class="input-field w-full" placeholder="यदि आपके और प्रश्न हैं तो यहाँ लिखें"></textarea>
       </div>
 
       <!-- 5. Disclaimer / अस्वीकरण -->
-      <div class="text-sm text-[#5a3d3d] bg-[#fff6f6] p-3 rounded-md border border-[#fde8ec]">
-        <strong>अस्वीकरण:</strong> आपकी व्यक्तिगत जानकारी गोपनीय रखी जाएगी और केवल सहायता प्रदान करने के उद्देश्य से ही उपयोग की जाएगी।
+      <div class="text-xs text-[#5a3d3d] bg-[#fff6f6] p-3 rounded-md border border-[#fde8ec] text-center">
+        <strong>अस्वीकरण:</strong> आपकी व्यक्तिगत जानकारी गोपनीय रखी जाएगी और केवल सहायता प्रदान करने के उद्देश्य से ही उपयोग की जाएगी。
       </div>
 
       <!-- Submit -->
       <div>
-        <button id="submitBtn" type="submit" class="w-full bg-gradient-to-r from-[#e0116b] to-[#f9a116] text-white font-bold py-3 rounded-full hover:scale-[1.02] transform transition shadow-lg">
+        <button id="submitBtn" type="submit" class="w-full bg-gradient-to-r from-[#e0116b] to-[#f9a116] text-white font-bold py-3 rounded-full hover:scale-[1.02] transform transition shadow-lg text-lg">
           भेजें
         </button>
       </div>
     </form>
   </div>
+</section>
+<!-- ...existing code... -->
 
 </section>
 <br>
 </div>
-
-
+  <section class="w-full bg-gradient-to-br from-[#fff6e8] to-[#fff1eb] py-16 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+     
+      
+      <!-- Video Container -->
+      <div class="bg-white rounded-2xl shadow-xl p-6 mb-8">
+        <div class="relative overflow-hidden rounded-xl">
+          <iframe 
+            class="w-full h-64 sm:h-80 lg:h-96 rounded-xl"
+            src="https://www.youtube.com/embed/maqCssiJdOs?si=VJqx2OD_5lTAREO_" 
+            title="गर्भनिरोधक साधन: सच और झूठ"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+        
+        <!-- Video Description -->
+        <div class="mt-6 text-center">
+          <h3 class="text-lg bold leading-relaxed" style="font-family: Baloo 2, cursive;color: #e0116b;">
+            गर्भनिरोधक साधनों के बारे में सच्चाई जानें और अपने डर को दूर करें। 
+            विशेषज्ञों की सलाह से सही जानकारी प्राप्त करें।
+          </h3>
+          
+       
+        </div>
+      </div>
+      
+   
+    </div>
+  </section>
+<!-- footer -->
  <section class="w-full bg-[#e0116b] py-12 px-6 relative overflow-hidden">
   <!-- Star Border -->
   <div class="absolute inset-0 z-0 pointer-events-none">
@@ -683,15 +754,16 @@
     <a href="index.html">
       <img src="logo.png" alt="Sakhi Helpline Logo" class="w-28 sm:w-36 mb-4">
     </a>
-    
-    <h2 class="text-xl sm:text-2xl font-semibold text-white pb-6"
-        style="text-shadow: 1px 1px 4px rgba(0,0,0,0.3);">
-आपकी सखी, आपकी सलाहकार – स्वस्थ और सुरक्षित भविष्य की ओर    </h2>
-
-    <a href="tel:18002025862"
-       class="inline-flex items-center gap-2 bg-gradient-to-r from-[#FFDB58] to-[#ffe680] text-[#e0116b] font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-yellow-300 hover:scale-105 transition-all duration-300">
+     <a href="tel:18002025862"
+       class="inline-flex items-center gap-2 bg-gradient-to-r from-[#FFDB58] to-[#ffe680] text-[#e0116b] font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-yellow-300 hover:scale-105 transition-all duration-300 mb-5">
       📞 1800 202 5862 निःशुल्क
     </a>
+    <h2 class="text-xl sm:text-2xl font-semibold text-black pb-6"
+        style="text-shadow: 1px 1px 4px rgba(0,0,0,0.3);">
+अधिक जानकारी के लिए अपनी आशा कार्यकर्ता से भी सम्पर्क कर सकते हैं
+   </h2>
+
+   
   </div>
 </section>
 
@@ -759,5 +831,28 @@
       });
     })();
   </script>
+  <script>
+  // ...existing script...
+  (function(){
+    const consentBtns = document.querySelectorAll('.consent-toggle .option');
+    const consentInput = document.getElementById('consentInput');
+    const callTimeField = document.getElementById('callTimeField');
+    consentBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        consentBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        consentInput.value = btn.getAttribute('data-value');
+        document.getElementById('consentError').classList.add('hidden');
+        // Show/hide call time field
+        if (btn.getAttribute('data-value') === 'हाँ') {
+          callTimeField.classList.remove('hidden');
+        } else {
+          callTimeField.classList.add('hidden');
+        }
+      });
+    });
+    // ...rest of your validation code...
+  })();
+</script>
 </body>
 </html>
