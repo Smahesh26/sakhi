@@ -1,5 +1,5 @@
 <?php
-// contact.php - receive POST, validate, send via PHPMailer (SMTP, UTF-8, Hindi messages)
+// contact.php - receive POST, validate, send via PHPMailer (mail() transport, UTF-8, Hindi messages)
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: index.html');
@@ -39,28 +39,22 @@ use PHPMailer\PHPMailer\Exception;
 $mail = new PHPMailer(true);
 
 try {
-    // SMTP configuration - set via env vars or hosting panel
-    $smtpHost = getenv('SMTP_HOST') ?: 'smtp.example.com';
-    $smtpUser = getenv('SMTP_USER') ?: 'smtp_user@example.com';
-    $smtpPass = getenv('SMTP_PASS') ?: 'smtp_password';
-    $smtpPort = getenv('SMTP_PORT') ?: 587;
-    $smtpEnc  = getenv('SMTP_ENC')  ?: 'tls'; // tls or ssl
-
+    // SMTP configuration for cPanel email
     $mail->isSMTP();
-    $mail->Host       = $smtpHost;
-    $mail->SMTPAuth   = true;
-    $mail->Username   = $smtpUser;
-    $mail->Password   = $smtpPass;
-    $mail->SMTPSecure = $smtpEnc;
-    $mail->Port       = (int)$smtpPort;
-    $mail->CharSet    = 'UTF-8';
+    $mail->Host = 'mail.humaravikalp.org';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'info@humaravikalp.org';
+    $mail->Password = 'w,@eaT7wSrCX'; // <-- put your email password here
+    $mail->SMTPSecure = 'ssl'; // use 'tls' if 465 doesn't work, then set port to 587
+    $mail->Port = 465;
 
-    // From and recipients
-    $mail->setFrom('noreply@sakhihelpline.com', 'Sakhi Helpline');
-    $mail->addAddress('shallu@ghb.digital');
-    $mail->addAddress('sonal@ghb.digital');
+    $mail->CharSet = 'UTF-8';
+    $mail->setFrom('info@humaravikalp.org', 'Sakhi Helpline');
+    $mail->addAddress('info@humaravikalp.org'); // Main recipient
+    $mail->addAddress('sunainamahesh1@gmail.com'); // Additional recipient
+    $mail->addAddress('ipasdevelopmentfoundation@gmail.com'); // Additional recipient
 
-    // Email content
+    // Email content (same as before)
     $subject = "नया संपर्क फ़ॉर्म संदेश - सखी हेल्पलाइन";
     $body  = "सखी हेल्पलाइन - संपर्क फ़ॉर्म संदेश\n\n";
     $body .= "नाम: $name\n";
@@ -75,14 +69,16 @@ try {
     $mail->Body    = $body;
     $mail->isHTML(false);
 
-    $mail->send();
-
-    echo "<script>alert('आपका संदेश सफलतापूर्वक भेज दिया गया है।'); window.location.href='index.html';</script>";
+    if ($mail->send()) {
+        echo "<script>alert('आपका संदेश सफलतापूर्वक भेज दिया गया है।'); window.location.href='index.html';</script>";
+    } else {
+        error_log('PHPMailer Error: ' . $mail->ErrorInfo);
+        echo "<script>alert('संदेश भेजने में त्रुटि हुई। कृपया बाद में पुनः प्रयास करें।'); window.history.back();</script>";
+    }
     exit;
 } catch (Exception $e) {
-    // log error for debugging
-    error_log('PHPMailer Error: ' . $mail->ErrorInfo);
-    echo "<script>alert('संदेश भेजने में त्रुटि हुई। कृपया बाद में पुनः प्रयास करें।'); window.history.back();</script>";
+    error_log('PHPMailer Exception: ' . $e->getMessage());
+    echo "<script>alert('सर्वर त्रुटि! कृपया बाद में पुनः प्रयास करें।'); window.history.back();</script>";
     exit;
 }
 ?>
