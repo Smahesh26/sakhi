@@ -250,33 +250,37 @@
   </div>
 
   <!-- Main Content as Slider with arrows at both ends of banner -->
-  <div class="relative max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between">
-    <!-- Adjust arrows further outside the banner to avoid overlap -->
+  <div class="relative max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between banner-main">
+    <!-- Left Arrow (desktop only) -->
     <button id="bannerSliderPrev"
-      class="absolute left-[-70px] md:left-[-90px] top-1/2 -translate-y-1/2 bg-[#e0116b] text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-[#c2185b] transition z-20"
+      class="banner-arrow banner-arrow-left"
       aria-label="पिछला स्लाइड">
       <i class="fas fa-chevron-left text-xl"></i>
     </button>
-    <button id="bannerSliderNext"
-      class="absolute right-[-70px] md:right-[-90px] top-1/2 -translate-y-1/2 bg-[#e0116b] text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-[#c2185b] transition z-20"
-      aria-label="अगला स्लाइड">
-      <i class="fas fa-chevron-right text-xl"></i>
-    </button>
-    <!-- Slider Text Content -->
-    <div class="text-center md:text-left md:w-1/2 pb-6 relative">
-      <div id="bannerSlider" class="relative">
-       
+    <!-- Slider Text Content (left on desktop, bottom on mobile) -->
+    <div class="text-center md:text-left md:w-1/2 pb-6 relative flex flex-col justify-center items-center banner-text">
+      <div id="bannerSlider" class="relative w-full">
+        <!-- Slide 1 -->
+        <div class="banner-slide" style="display:block;">
+          <h1 class="banner-title">
+            सखी हेल्पलाइन पर गर्भनिरोध संबंधित भरोसेमंद सलाह,<br/> गोपनीयता से पाएं
+          </h1>
+          <div class="banner-btns">
+            <a href="tel:18002025862"
+               class="inline-flex items-center gap-3 bg-[#e0116b] text-white font-bold text-base py-3 px-6 rounded-full shadow-xl hover:bg-[#c10d5f] transition-all duration-300 mb-2 animated-call-btn">
+              <i class="bi bi-telephone-fill text-2xl"></i>
+              1800 202 5862 निःशुल्क
+            </a>
+          </div>
+        </div>
         <!-- Slide 2 -->
         <div class="banner-slide" style="display:none;">
-          <h1 class="text-4xl sm:text-5xl font-extrabold break-words mb-8 md:mb-0 leading-[1.5] md:leading-snug"
-              style="background: linear-gradient(90deg, #fff9c4, #ffe1f0);
-                     -webkit-background-clip: text;
-                     -webkit-text-fill-color: transparent;">
+          <h1 class="banner-title">
             क्या आपकी अभी शादी हुई है और आप बच्चे करने के दबाव में हैं?<br>जानें क्या-क्या विकल्प उपलब्ध हैं
           </h1>
-          <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start items-center">
+          <div class="banner-btns">
             <a href="tel:18002025862"
-               class="inline-flex items-center gap-3 bg-[#e0116b] text-white font-bold text-base py-3 px-6 rounded-full shadow-xl hover:bg-[#c10d5f] transition-all duration-300 mb-2">
+               class="inline-flex items-center gap-3 bg-[#e0116b] text-white font-bold text-base py-3 px-6 rounded-full shadow-xl hover:bg-[#c10d5f] transition-all duration-300 mb-2 animated-call-btn">
               <i class="bi bi-telephone-fill text-2xl"></i>
               1800 202 5862 निःशुल्क
             </a>
@@ -286,33 +290,14 @@
             </a>
           </div>
         </div>
-         <!-- Slide 1 -->
-        <div class="banner-slide" style="display:block;">
-          <h1 class="text-4xl sm:text-5xl font-extrabold break-words mb-8 md:mb-0 leading-[1.5] md:leading-snug"
-              style="background: linear-gradient(90deg, #fff9c4, #ffe1f0);
-                     -webkit-background-clip: text;
-                     -webkit-text-fill-color: transparent;">
-            सखी हेल्पलाइन पर गर्भनिरोध संबंधित भरोसेमंद सलाह,<br/> गोपनीयता से पाएं
-          </h1>
-          <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start items-center">
-            <a href="tel:18002025862"
-               class="inline-flex items-center gap-3 bg-[#e0116b] text-white font-bold text-base py-3 px-6 rounded-full shadow-xl hover:bg-[#c10d5f] transition-all duration-300 mb-2">
-              <i class="bi bi-telephone-fill text-2xl"></i>
-              1800 202 5862 निःशुल्क
-            </a>
-          </div>
-        </div>
         <!-- Slide 3 -->
         <div class="banner-slide" style="display:none;">
-          <h1 class="text-4xl sm:text-5xl font-extrabold break-words mb-8 md:mb-0 leading-[1.5] md:leading-snug"
-              style="background: linear-gradient(90deg, #fff9c4, #ffe1f0);
-                     -webkit-background-clip: text;
-                     -webkit-text-fill-color: transparent;">
+          <h1 class="banner-title">
             दूसरा बच्चा कब करना चाहिए?<br>क्या सही उम्र होती है?
           </h1>
-          <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start items-center">
+          <div class="banner-btns">
             <a href="tel:18002025862"
-               class="inline-flex items-center gap-3 bg-[#e0116b] text-white font-bold text-base py-3 px-6 rounded-full shadow-xl hover:bg-[#c10d5f] transition-all duration-300 mb-2">
+               class="inline-flex items-center gap-3 bg-[#e0116b] text-white font-bold text-base py-3 px-6 rounded-full shadow-xl hover:bg-[#c10d5f] transition-all duration-300 mb-2 animated-call-btn">
               <i class="bi bi-telephone-fill text-2xl"></i>
               1800 202 5862 निःशुल्क
             </a>
@@ -322,21 +307,124 @@
             </a>
           </div>
         </div>
+        <!-- Arrows -->
+        <!-- <button id="bannerSliderPrev"
+          class="banner-arrow banner-arrow-left"
+          aria-label="पिछला स्लाइड">
+          <i class="fas fa-chevron-left text-xl"></i>
+        </button> -->
+        <!-- <button id="bannerSliderNext"
+          class="banner-arrow banner-arrow-right"
+          aria-label="अगला स्लाइड">
+          <i class="fas fa-chevron-right text-xl"></i>
+        </button> -->
       </div>
     </div>
-    <!-- Mascot Image (static) -->
-    <div class="md:w-1/2 flex justify-center self-end md:self-end mt-6 md:mt-0">
+    <!-- Mascot Image (right on desktop, top on mobile) -->
+    <div class="md:w-1/2 flex justify-center self-end md:self-end mt-6 md:mt-0 banner-image">
       <img src="Sakhi Mascot Upscaled.png" alt="सखी हेल्पलाइन"
-           class="w-[920px] max-w-[95vw] rounded-full shadow-3xl">
+           class="w-[920px] max-w-[95vw] rounded-full shadow-3xl" />
     </div>
+    <!-- Right Arrow (desktop only) -->
+    <button id="bannerSliderNext"
+      class="banner-arrow banner-arrow-right"
+      aria-label="अगला स्लाइड">
+      <i class="fas fa-chevron-right text-xl"></i>
+    </button>
   </div>
+  <style>
+    .banner-main { display: flex; position: relative; }
+    .banner-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #e0116b;
+      color: #fff;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 20;
+      box-shadow: 0 2px 8px #e0116b33;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .banner-arrow-left { left: 0; }
+    .banner-arrow-right { right: 0; }
+    .banner-arrow:hover { background: #c2185b; }
+    .banner-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 1.2rem;
+      text-align: left;
+      background: linear-gradient(90deg, #fff9c4, #ffe1f0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      word-break: break-word;
+      white-space: pre-line;
+    }
+    @media (max-width: 640px) {
+      .banner-main { flex-direction: column !important; }
+      .banner-image { order: 1 !important; margin-bottom: 12px !important; }
+      .banner-text { order: 2 !important; }
+      .banner-title {
+        font-size: 1.35rem !important;
+        text-align: center !important;
+        margin-bottom: 1rem !important;
+        max-width: 95vw;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .banner-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+        top: auto;
+        bottom: -38px;
+        transform: none;
+      }
+      .banner-arrow-left { left: 18px !important; }
+      .banner-arrow-right { right: 18px !important; }
+      #bannerSlider { position: relative; min-height: 120px; }
+      .banner-btns { justify-content: center !important; }
+    }
+    @media (min-width: 641px) {
+      .banner-title { text-align: left !important; }
+      .banner-arrow-left { left: 0; }
+      .banner-arrow-right { right: 0; }
+    }
+  </style>
 </section>
-
-
-
-
-<br>
-<!-- Cards Heading -->
+<script>
+  // Banner slider logic with arrows (desktop & mobile)
+  (function(){
+    const slides = document.querySelectorAll('#bannerSlider .banner-slide');
+    const prevBtn = document.getElementById('bannerSliderPrev');
+    const nextBtn = document.getElementById('bannerSliderNext');
+    let current = 0;
+    function showSlide(idx) {
+      slides.forEach((s, i) => s.style.display = i === idx ? 'block' : 'none');
+      current = idx;
+    }
+    function nextSlide() {
+      showSlide((current+1)%slides.length);
+    }
+    function prevSlide() {
+      showSlide((current-1+slides.length)%slides.length);
+    }
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', prevSlide);
+      nextBtn.addEventListener('click', nextSlide);
+    }
+    setInterval(nextSlide, 7000);
+    showSlide(0);
+  })();
+</script>
+<!-- ...existing code... -->
 <section class="max-w-6xl mx-auto text-center py-6 px-6">
  
 </section>
@@ -561,7 +649,7 @@
           </div>
           <div class="p-4 rounded-lg border border-orange-100 shadow-sm">
             <p class="text-[#5a3d3d] font-medium text-left">
-              <span class="text-[#e0116b] text-lg">➜</span> <strong class="text-[#dc2626] bg-[#fee2e2] px-2 py-1 rounded-md text-sm">सही बात:</strong>  नहीं, किसी भी आधुनिक गर्भनिरोधक साधन से बाँझपन नहीं होता। साधन बंद करने पर महिला दोबारा गर्भधारण कर सकती है।
+              <span class="text-[#e0116b] text-lg">➜</span> <strong class="text-[#dc2626] bg-[#fee2e2] px-2 py-1 rounded-md text-sm">सही बात:</strong>  नहीं, किसी भी आधुनिक गर्भनिरोधक साधन से बाँझपन नहीं होता। साधन बंद करने पर महिला दोबारा गर्भधारण कर सकती है。
             </p>
           </div>
         </div>
@@ -593,8 +681,8 @@
       </defs>
       <!-- Top Border -->
       <rect x="0" y="0" width="100%" height="25" fill="url(#star-pattern)" />
-      <!-- Bottom Border -->
-<rect x="0" y="calc(100% - 15px)" width="100%" height="35" fill="url(#star-pattern)" />
+      <!-- Bottom -->
+      <rect x="0" y="calc(100% - 15px)" width="100%" height="35" fill="url(#star-pattern)" />
       <!-- Left Border -->
       <rect x="0" y="0" width="25" height="100%" fill="url(#star-pattern)" />
       <!-- Right Border -->
@@ -603,7 +691,6 @@
   </div>
 
   <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center relative z-10 px-6 py-6">
-
     <!-- Text Content -->
     <div>
       <h2 class="text-4xl sm:text-5xl font-extrabold mb-4 leading-tight flex items-center"
@@ -611,17 +698,21 @@
                  -webkit-background-clip: text;
                  -webkit-text-fill-color: transparent;
                  display: inline-block; line-height: 60px;">
-        <img src="phonebuzz.png" alt="फोन बज रहा है" style="height: 48px; width: 48px; margin-right: 16px; display: inline-block; vertical-align: middle;">
-        सखी हेल्पलाइन
+        <img src="phonebuzz.png" alt="फोन बज रहा है"
+             style="height: 48px; width: 48px; margin-right: 16px; display: inline-block; vertical-align: middle;">
+        <span style="word-break: break-word; white-space: pre-line;">
+          सखी हेल्पलाइन
+        </span>
       </h2>
-      <p class="text-lg text-[#5a3d3d] mt-4 leading-relaxed">
+      <p class="text-lg text-[#5a3d3d] mt-4 leading-relaxed" style="word-break: break-word; white-space: pre-line;">
         पहले बच्चे में देरी और दो बच्चों में अंतर रखने के लिए आप 
         <strong class="text-[#e0116b]">सखी हेल्पलाइन</strong> पर कॉल कर सकते हैं।<br />
         परामर्शदाता आपको <strong>नि:शुल्क, गोपनीय और भरोसेमंद</strong> सलाह देंगे ताकि आप अपने परिवार की योजना बेहतर बना सकें
       </p>
       <div class="mt-6">
         <a href="tel:18002025862"
-           class="inline-flex items-center gap-3 bg-gradient-to-r from-[#e0116b] to-[#f9a116] text-white font-bold text-lg py-4 px-8 rounded-full shadow-xl hover:shadow-pink-400 hover:scale-105 transition duration-300">
+           class="inline-flex items-center gap-3 bg-gradient-to-r from-[#e0116b] to-[#f9a116] text-white font-bold text-lg py-4 px-8 rounded-full shadow-xl hover:shadow-pink-400 hover:scale-105 transition duration-300 animate-bounce"
+           style="animation-duration:1.5s;animation-iteration-count:infinite;">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 16 16">
             <path d="M3.654 1.328a.678.678 0 0 1 .761-.181l2.261.905a.678.678 0 0 1 .396.61l.034 2.018a.678.678 0 0 1-.254.515l-1.223.9a11.603 11.603 0 0 0 5.292 5.292l.9-1.223a.678.678 0 0 1 .515-.254l2.018.034a.678.678 0 0 1 .61.396l.905 2.261a.678.678 0 0 1-.181.761l-1.451 1.451a1.745 1.745 0 0 1-1.743.45c-2.305-.765-4.545-2.407-6.717-4.58C3.39 6.813 1.748 4.573.983 2.268a1.745 1.745 0 0 1 .45-1.743L2.884.074a.678.678 0 0 1 .77.087z"/>
           </svg>
@@ -629,66 +720,34 @@
         </a>
       </div>
     </div>
-
     <!-- Illustration -->
     <div class="flex justify-center">
-      <div class="relative rounded-full border-8 border-[#e0116b] shadow-2xl">
-        <img src="Sakhi Mascot Upscaled.png" alt="Helpline Mascot" class="w-[400px] h-auto rounded-full">
+      <div class="relative rounded-full border-8 border-[#e0116b] shadow-2xl"
+           style="margin-left: 0;">
+        <img src="Sakhi Mascot Upscaled.png" alt="Helpline Mascot" class="w-[400px] h-auto rounded-full" style="margin-left: 0;">
       </div>
     </div>
   </div>
-</section>
-
-
-
-<section class="w-full bg-gradient-to-br from-[#fff0f5] to-[#fffaf0] py-16 px-6 sm:px-8">
-  <div class="max-w-4xl mx-auto text-center">
-    
-    <!-- Gradient Heading -->
-    <h2 class="text-3xl sm:text-4xl font-bold mb-10 leading-relaxed"
-        style="background: linear-gradient(90deg, #e0116b, #f9a116);
-               -webkit-background-clip: text;
-               -webkit-text-fill-color: transparent;
-               display: inline-block; line-height: 60px;">
-      सखी हेल्पलाइन, विकल्प परियोजना द्वारा संचालित है 
-    </h2>
-    
-    <div class="text-left text-[#5a3d3d] text-lg leading-relaxed space-y-6">
-
-      <!-- Point 1: Project Visual -->
-      <div class="flex items-start gap-6 bg-[#fff7f9] p-6 rounded-xl shadow-md border border-[#fce3e8] hover:shadow-lg transition group">
-        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[#f9a1a1]/30 flex-shrink-0">
-          <img src="footer/4.png" alt="Project icon" class="w-20 h-12 group-hover:scale-110 transition-transform" aria-hidden="true">
-        </div>
-        <p>विकल्प परियोजना मध्यप्रदेश और राजस्थान में आईपास डेवलपमेंट फाउंडेशन के सहयोग से संचालित की जा रही है | यह परियोजना राज्यों में सरकार के परिवार नियोजन कार्यक्रम को सहयोग देती है | </p>
-      </div>
-
-      <!-- Point 2: Couple Visual -->
-      <div class="flex items-start gap-6 bg-[#fff7f2] p-6 rounded-xl shadow-md border border-[#fcdcc9] hover:shadow-lg transition group">
-        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[#f9d7a1]/30 flex-shrink-0">
-          <img src="pointer2.jpeg" alt="Couple icon" class="w-13 h-13 group-hover:scale-110 transition-transform" aria-hidden="true" style="border-radius: 50%;">
-        </div>
-        <p>इसका लक्ष्य है युवा दंपतियों में बेहतर स्वास्थ्य के लिए परिवार नियोजन के प्रति जागरूकता बढ़ाना | </p>
-      </div>
-
-      <!-- Point 3: Phone/Helpline Visual -->
-      <div class="flex items-start gap-6 bg-[#fff9f7] p-6 rounded-xl shadow-md border border-[#f8c7d7] hover:shadow-lg transition group">
-        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[#f9a1d7]/30 flex-shrink-0">
-          <img src="call.png" alt="Helpline icon" class="w-12 h-12 group-hover:scale-110 transition-transform" aria-hidden="true">
-        </div>
-        <p>टोल-फ्री हेल्पलाइन सप्ताह के सातों दिन परामर्श और मार्गदर्शन प्रदान करती है ।</p>
-      </div>
-
-      <!-- Point 4: Woman Visual -->
-      <div class="flex items-start gap-6 bg-[#fff6f5] p-6 rounded-xl shadow-md border border-[#fceacc] hover:shadow-lg transition group">
-        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[#f9e1a1]/30 flex-shrink-0">
-          <img src="Screenshot 2025-07-21 003127.png" alt="Empowered woman icon" class="w-12 h-12 group-hover:scale-110 transition-transform" aria-hidden="true" style="border-radius: 50%;">
-        </div>
-        <p>यह पहल महिलाओं को जानकारी आधारित निर्णय लेने में सशक्त बनाती है और स्वास्थ्य सेवाओं की पहुँच बढ़ाती है ।</p>
-      </div>
-
-    </div>
-  </div>
+  <style>
+    @media (max-width: 640px) {
+      .max-w-6xl .grid-cols-1 > div.flex.justify-center {
+        margin-top: 12px !important;
+      }
+      .max-w-6xl .grid-cols-1 > div:first-child h2 img {
+        margin-right: 10px !important;
+      }
+      .max-w-6xl .grid-cols-1 > div:first-child h2 {
+        font-size: 1.5rem !important;
+        line-height: 1.3 !important;
+        flex-wrap: wrap;
+      }
+      .max-w-6xl .grid-cols-1 > div:first-child h2 span {
+        display: inline-block;
+        max-width: 80vw;
+        word-break: break-word;
+      }
+    }
+  </style>
 </section>
 
 <!-- Contact Form Section -->
@@ -822,12 +881,17 @@
   <a id="callBtn"
    href="tel:18002025862"
    title="टोल-फ्री कॉल करें"
-   style="position: fixed; bottom: 30px; right: 30px; z-index: 50; background-color: #e0116b; color: white; border-radius: 50%; width: 56px; height: 56px; display: flex; justify-content: center; align-items: center; font-size: 28px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);"
+   style="position: fixed; bottom: 30px; right: 30px; z-index: 50; background-color: #e0116b; color: white; border-radius: 50%; width: 56px; height: 56px; display: flex; justify-content: center; align-items: center; font-size: 28px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); animation: callpulse 1.5s infinite;"
    aria-label="टोल-फ्री कॉल करें">
-  <!-- Toll-free phone icon (Bootstrap icon) -->
   <i class="bi bi-telephone-fill"></i>
 </a>
-
+<style>
+@keyframes callpulse {
+  0% { box-shadow: 0 0 0 0 #e0116b66; }
+  70% { box-shadow: 0 0 0 16px #e0116b22; }
+  100% { box-shadow: 0 0 0 0 #e0116b66; }
+}
+</style>
   <script>
     (function(){
       const form = document.getElementById('contactForm');
@@ -989,5 +1053,30 @@
     showSlide(0);
   })();
 </script>
+<style>
+  /* ...existing styles... */
+  .animated-call-btn {
+    animation: callpulse 1.5s infinite, callbounce 2.5s infinite;
+    box-shadow: 0 0 0 0 #e0116b66;
+    position: relative;
+    transition: transform 0.2s;
+  }
+  @keyframes callpulse {
+    0% { box-shadow: 0 0 0 0 #e0116b66; }
+    70% { box-shadow: 0 0 0 12px #e0116b22; }
+    100% { box-shadow: 0 0 0 0 #e0116b66; }
+  }
+  @keyframes callbounce {
+    0%, 100% { transform: translateY(0); }
+    20% { transform: translateY(-6px); }
+    40% { transform: translateY(0); }
+    60% { transform: translateY(-3px); }
+    80% { transform: translateY(0); }
+  }
+  .animated-call-btn:hover {
+    transform: scale(1.07) rotate(-2deg);
+    box-shadow: 0 0 0 16px #e0116b22;
+  }
+</style>
 </body>
 </html>
