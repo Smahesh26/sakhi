@@ -261,7 +261,7 @@
     <div class="text-center md:text-left md:w-1/2 pb-6 relative flex flex-col justify-center items-center banner-text">
       <div id="bannerSlider" class="relative w-full">
         <!-- Slide 1 -->
-        <div class="banner-slide" style="display:block;">
+        <div class="banner-slide active">
           <h1 class="banner-title">
             सखी हेल्पलाइन पर गर्भनिरोध संबंधित भरोसेमंद सलाह,<br/> गोपनीयता से पाएं
           </h1>
@@ -274,7 +274,7 @@
           </div>
         </div>
         <!-- Slide 2 -->
-        <div class="banner-slide" style="display:none;">
+        <div class="banner-slide">
           <h1 class="banner-title">
             क्या बच्चा करने में देरी करना चाहते हैं? जानें क्या क्या विकल्प उपलब्ध हैं 
             <!-- क्या आपकी अभी शादी हुई है और आप बच्चे करने के दबाव में हैं?<br>जानें क्या-क्या विकल्प उपलब्ध हैं -->
@@ -292,7 +292,7 @@
           </div>
         </div>
          <!-- Slide 2 -->
-        <div class="banner-slide" style="display:none;">
+        <div class="banner-slide">
           <h1 class="banner-title">
             <!-- क्या बच्चा करने में देरी करना चाहते हैं? जानें क्या क्या विकल्प उपलब्ध हैं  -->
             क्या आपकी अभी शादी हुई है और आप बच्चे करने के दबाव में हैं?<br> जानें क्या है सही समय
@@ -303,14 +303,14 @@
               <i class="bi bi-telephone-fill text-2xl"></i>
               1800 202 5862 निःशुल्क
             </a>
-            <a href="https://humaravikalp.org/%E0%A4%AA%E0%A4
+            <a href="https://humaravikalp.org/पहलेबच्चेमेंदेरीकेलाभ.html"
                class="inline-flex items-center justify-center bg-[#c2185b] text-white font-bold py-3 px-6 rounded-full hover:bg-[#ad1457] transition-all duration-300 text-center mb-2">
               और पढ़ें
             </a>
           </div>
         </div>
         <!-- Slide 4 -->
-        <div class="banner-slide" style="display:none;">
+        <div class="banner-slide">
           <h1 class="banner-title">
             दूसरा बच्चा कब करना चाहिए?<br>जानें क्या है सही समय? 
           </h1>
@@ -320,7 +320,7 @@
               <i class="bi bi-telephone-fill text-2xl"></i>
               1800 202 5862 निःशुल्क
             </a>
-            <a href="https://humaravikalp.org/%E0%A4%A6%E0%A5%82%E0%A4%B8%E0%A4%B0%E0%A5%87%E0%A4%AC%E0%A4%9A%E0%A5%8D%E0%A4%9A%E0%A5%87%E0%A4%AE%E0%A5%87%E0%A4%82%E0%A4%85%E0%A4%82%E0%A4%A4%E0%A4%B0%E0%A4%B0%E0%A4%96%E0%A4%A8%E0%A5%87%E0%A4%95%E0%A5%87%E0%A4%B2%E0%A4%BE%E0%A4%AD.html"
+            <a href="https://humaravikalp.org/दूसरेबच्चेमेंअंतररखनेकेलाभ.html"
                class="inline-flex items-center justify-center bg-[#c2185b] text-white font-bold py-3 px-6 rounded-full hover:bg-[#ad1457] transition-all duration-300 text-center mb-2">
               और पढ़ें
             </a>
@@ -421,26 +421,36 @@
 <script>
   // Banner slider logic with arrows (desktop & mobile)
   (function(){
-    const slides = document.querySelectorAll('#bannerSlider .banner-slide');
+    const slides = Array.from(document.querySelectorAll('#bannerSlider .banner-slide'));
     const prevBtn = document.getElementById('bannerSliderPrev');
     const nextBtn = document.getElementById('bannerSliderNext');
-    let current = 0;
-    function showSlide(idx) {
-      slides.forEach((s, i) => s.style.display = i === idx ? 'block' : 'none');
+    const ANIM_INTERVAL = 10000; // 10 seconds
+    let current = slides.findIndex(s => s.classList.contains('active'));
+    if (current < 0) current = 0;
+
+    function setActive(idx) {
+      slides.forEach((s,i) => {
+        s.classList.toggle('active', i === idx);
+        // ensure non-active slides are behind for accessibility
+        s.setAttribute('aria-hidden', i === idx ? 'false' : 'true');
+      });
       current = idx;
     }
-    function nextSlide() {
-      showSlide((current+1)%slides.length);
-    }
-    function prevSlide() {
-      showSlide((current-1+slides.length)%slides.length);
-    }
-    if (prevBtn && nextBtn) {
-      prevBtn.addEventListener('click', prevSlide);
-      nextBtn.addEventListener('click', nextSlide);
-    }
-    setInterval(nextSlide, 7000);
-    showSlide(0);
+
+    function nextSlide() { setActive((current + 1) % slides.length); }
+    function prevSlide() { setActive((current - 1 + slides.length) % slides.length); }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetTimer(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetTimer(); });
+
+    // Auto-advance with reset on manual navigation
+    let timer = setInterval(nextSlide, ANIM_INTERVAL);
+    function resetTimer() { clearInterval(timer); timer = setInterval(nextSlide, ANIM_INTERVAL); }
+
+    // initialize
+    setActive(current);
+    // Re-apply layout on resize (keeps transitions smooth)
+    window.addEventListener('resize', () => setActive(current));
   })();
 </script>
 <!-- ...existing code... -->
@@ -692,43 +702,43 @@
         </pattern>
       </defs>
       <!-- Top Border -->
-      <rect x="0" y="0" width="100%" height="25" fill="url(#star-pattern)" />
-      <!-- Bottom -->
-      <rect x="0" y="calc(100% - 15px)" width="100%" height="35" fill="url(#star-pattern)" />
-      <!-- Left Border -->
-      <rect x="0" y="0" width="25" height="100%" fill="url(#star-pattern)" />
-      <!-- Right Border -->
-      <rect x="calc(100% - 25px)" y="0" width="25" height="100%" fill="url(#star-pattern)" />
-    </svg>
-  </div>
+        <rect x="0" y="0" width="100%" height="25" fill="url(#star-pattern)" />
+        <!-- Bottom -->
+        <rect x="0" y="calc(100% - 15px)" width="100%" height="35" fill="url(#star-pattern)" />
+        <!-- Left Border -->
+        <rect x="0" y="0" width="25" height="100%" fill="url(#star-pattern)" />
+        <!-- Right Border -->
+        <rect x="calc(100% - 25px)" y="0" width="25" height="100%" fill="url(#star-pattern)" />
+      </svg>
+    </div>
 
-  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center relative z-10 px-6 py-6">
-    <!-- Text Content -->
-    <div>
-      <h2 class="text-4xl sm:text-5xl font-extrabold mb-4 leading-tight flex items-center"
-          style="background: linear-gradient(90deg, #e0116b, #f9a116);
-                 -webkit-background-clip: text;
-                 -webkit-text-fill-color: transparent;
-                 display: inline-block; line-height: 60px;">
-        <img src="phonebuzz.png" alt="फोन बज रहा है"
-             style="height: 48px; width: 48px; margin-right: 16px; display: inline-block; vertical-align: middle;">
-        <span style="font-size: 30px;">
-सखी हेल्पलाइन, विकल्प परियोजना द्वारा संचालित है        </span>
-      </h2>
-      <p class="text-lg text-[#5a3d3d] mt-4 leading-relaxed" style="word-break: break-word; white-space: pre-line;">
-        पहले बच्चे में देरी और दो बच्चों में अंतर रखने के लिए आप 
-        <strong class="text-[#e0116b]">सखी हेल्पलाइन</strong> पर कॉल कर सकते हैं।<br />
-        परामर्शदाता आपको <strong>नि:शुल्क, गोपनीय और भरोसेमंद</strong> सलाह देंगे ताकि आप अपने परिवार की योजना बेहतर बना सकें
-      </p>
-      <div class="mt-6">
-        <a href="tel:18002025862"
-           class="inline-flex items-center gap-3 bg-gradient-to-r from-[#e0116b] to-[#f9a116] text-white font-bold text-lg py-4 px-8 rounded-full shadow-xl hover:shadow-pink-400 hover:scale-105 transition duration-300 animate-bounce"
-           style="animation-duration:1.5s;animation-iteration-count:infinite;">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M3.654 1.328a.678.678 0 0 1 .761-.181l2.261.905a.678.678 0 0 1 .396.61l.034 2.018a.678.678 0 0 1-.254.515l-1.223.9a11.603 11.603 0 0 0 5.292 5.292l.9-1.223a.678.678 0 0 1 .515-.254l2.018.034a.678.678 0 0 1 .61.396l.905 2.261a.678.678 0 0 1-.181.761l-1.451 1.451a1.745 1.745 0 0 1-1.743.45c-2.305-.765-4.545-2.407-6.717-4.58C3.39 6.813 1.748 4.573.983 2.268a1.745 1.745 0 0 1 .45-1.743L2.884.074a.678.678 0 0 1 .77.087z"/>
-          </svg>
-          1800 202 5862 निःशुल्क
-        </a>
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center relative z-10 px-6 py-6">
+      <!-- Text Content -->
+      <div>
+        <h2 class="text-4xl sm:text-5xl font-extrabold mb-4 leading-tight flex items-center"
+            style="background: linear-gradient(90deg, #e0116b, #f9a116);
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                  display: inline-block; line-height: 60px;">
+          <img src="phonebuzz.png" alt="फोन बज रहा है"
+              style="height: 48px; width: 48px; margin-right: 16px; display: inline-block; vertical-align: middle;">
+          <span style="font-size: 30px;">
+  सखी हेल्पलाइन, विकल्प परियोजना द्वारा संचालित है        </span>
+        </h2>
+        <p class="text-lg text-[#5a3d3d] mt-4 leading-relaxed" style="word-break: break-word; white-space: pre-line;">
+          पहले बच्चे में देरी और दो बच्चों में अंतर रखने के लिए आप 
+          <strong class="text-[#e0116b]">सखी हेल्पलाइन</strong> पर कॉल कर सकते हैं।<br />
+          परामर्शदाता आपको <strong>नि:शुल्क, गोपनीय और भरोसेमंद</strong> सलाह देंगे ताकि आप अपने परिवार की योजना बेहतर बना सकें
+        </p>
+        <div class="mt-6">
+          <a href="tel:18002025862"
+            class="inline-flex items-center gap-3 bg-gradient-to-r from-[#e0116b] to-[#f9a116] text-white font-bold text-lg py-4 px-8 rounded-full shadow-xl hover:shadow-pink-400 hover:scale-105 transition duration-300 animate-bounce"
+            style="animation-duration:1.5s;animation-iteration-count:infinite;">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M3.654 1.328a.678.678 0 0 1 .761-.181l2.261.905a.678.678 0 0 1 .396.61l.034 2.018a.678.678 0 0 1-.254.515l-1.223.9a11.603 11.603 0 0 0 5.292 5.292l.9-1.223a.678.678 0 0 1 .515-.254l2.018.034a.678.678 0 0 1 .61.396l.905 2.261a.678.678 0 0 1-.181.761l-1.451 1.451a1.745 1.745 0 0 1-1.743.45c-2.305-.765-4.545-2.407-6.717-4.58C3.39 6.813 1.748 4.573.983 2.268a1.745 1.745 0 0 1 .45-1.743L2.884.074a.678.678 0 0 1 .77.087z"/>
+            </svg>
+            1800 202 5862 निःशुल्क
+          </a>
       </div>
     </div>
     <!-- Illustration -->
@@ -886,27 +896,36 @@
   <script>
   // Banner slider logic
   (function(){
-    const slides = document.querySelectorAll('#bannerSlider .banner-slide');
+    const slides = Array.from(document.querySelectorAll('#bannerSlider .banner-slide'));
     const prevBtn = document.getElementById('bannerSliderPrev');
     const nextBtn = document.getElementById('bannerSliderNext');
-    let current = 0;
-    function showSlide(idx) {
-      slides.forEach((s, i) => s.style.display = i === idx ? 'block' : 'none');
+    const ANIM_INTERVAL = 10000; // 10 seconds
+    let current = slides.findIndex(s => s.classList.contains('active'));
+    if (current < 0) current = 0;
+
+    function setActive(idx) {
+      slides.forEach((s,i) => {
+        s.classList.toggle('active', i === idx);
+        // ensure non-active slides are behind for accessibility
+        s.setAttribute('aria-hidden', i === idx ? 'false' : 'true');
+      });
       current = idx;
     }
-    function nextSlide() {
-      showSlide((current+1)%slides.length);
-    }
-    function prevSlide() {
-      showSlide((current-1+slides.length)%slides.length);
-    }
-    if (prevBtn && nextBtn) {
-      prevBtn.addEventListener('click', prevSlide);
-      nextBtn.addEventListener('click', nextSlide);
-    }
-    // Auto-slide every 7s
-    setInterval(nextSlide, 7000);
-    showSlide(0);
+
+    function nextSlide() { setActive((current + 1) % slides.length); }
+    function prevSlide() { setActive((current - 1 + slides.length) % slides.length); }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetTimer(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetTimer(); });
+
+    // Auto-advance with reset on manual navigation
+    let timer = setInterval(nextSlide, ANIM_INTERVAL);
+    function resetTimer() { clearInterval(timer); timer = setInterval(nextSlide, ANIM_INTERVAL); }
+
+    // initialize
+    setActive(current);
+    // Re-apply layout on resize (keeps transitions smooth)
+    window.addEventListener('resize', () => setActive(current));
   })();
 </script>
 <style>
@@ -963,7 +982,7 @@
 <script>
   // Banner slider logic with arrows
   (function(){
-    const slides = document.querySelectorAll('#bannerSlider .banner-slide');
+    const slides = Array.from(document.querySelectorAll('#bannerSlider .banner-slide'));
     const prevBtn = document.getElementById('bannerSliderPrev');
     const nextBtn = document.getElementById('bannerSliderNext');
     let current = 0;
