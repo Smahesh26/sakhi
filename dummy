@@ -1,0 +1,91 @@
+  Enhanced FAQ + Myths Section
+<section class="w-full py-16 bg-gradient-to-br from-[#fff6e8] to-[#fff1eb]">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 w-full">
+      
+      <!-- FAQ Section -->
+      <div class="flex flex-col items-center text-center">
+        <!-- Heading with Icons -->
+        <div class="flex flex-col gap-3 mb-8">
+          <!-- Line 1 -->
+          <div class="flex items-center gap-4 justify-center">
+            <img src="questions.png" alt="Question Icon" class="w-11 h-11 rounded-[10px]">
+            <h2 class="text-3xl font-bold leading-relaxed bg-gradient-to-r from-[#c2185b] to-[#f9a116] bg-clip-text text-transparent">
+              आपके सवाल &nbsp;&nbsp;&nbsp;
+            </h2>
+          </div>
+
+          <!-- Line 2 -->
+          <div class="flex items-center gap-4 justify-center">
+            <img src="doctor.png" alt="Doctor Icon" class="w-12 h-12 rounded-[10px]">
+            <h2 class="text-3xl font-bold leading-relaxed bg-gradient-to-r from-[#c2185b] to-[#f9a116] bg-clip-text text-transparent">
+विशेषज्ञों के जवाब            </h2>
+          </div>
+        </div>
+
+        <!-- Questions List -->
+        <div class="space-y-4 mb-8 w-full max-w-md">
+          <div class="p-4 rounded-lg border border-pink-100 shadow-sm">
+            <p class="text-[#5a3d3d] font-medium text-center">
+              <span class="text-[#e0116b] text-lg">➜</span> शादी के कितने समय बाद बच्चा होना चाहिए?
+            </p>
+          </div>
+          <div class=" p-4 rounded-lg border border-pink-100 shadow-sm">
+            <p class="text-[#5a3d3d] font-medium text-center">
+              <span class="text-[#e0116b] text-lg">➜</span> कम उम्र में गर्भधारण करने के क्या खतरे हैं?
+            </p>
+          </div>
+        </div>
+
+        <!-- CTA Button -->
+        <a href="Faq.html"
+          class="inline-block bg-[#e0116b] text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-[#c2185b] hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+          📖 सवाल और उनके जवाब जानें
+        </a>
+      </div>
+
+      <!-- Myths Section -->
+      <div class="flex flex-col items-center text-center">
+        <!-- Heading with Icons -->
+        <div class="flex flex-col gap-3 mb-8">
+          <!-- Line 1 -->
+          <div class="flex items-center gap-4 justify-center">
+            <img src="right.png" alt="Right Icon" class="w-12 h-12 rounded-[10px]">
+            <h2 class="text-3xl font-bold leading-relaxed bg-gradient-to-r from-[#e0116b] to-[#f9a116] bg-clip-text text-transparent">
+              क्या सही
+            </h2>
+          </div>
+
+          <!-- Line 2 -->
+          <div class="flex items-center gap-4 justify-center">
+            <img src="wrong.png" alt="Wrong Icon" class="w-12 h-12 rounded-[10px]">
+            <h2 class="text-3xl font-bold leading-relaxed bg-gradient-to-r from-[#e0116b] to-[#f9a116] bg-clip-text text-transparent">
+              क्या नहीं
+            </h2>
+          </div>
+        </div>
+
+        <!-- Myths List -->
+        <div class="space-y-4 mb-8 w-full max-w-md">
+          <div class=" p-4 rounded-lg border border-orange-100 shadow-sm">
+            <p class="text-[#5a3d3d] font-medium text-left">
+              <span class="text-[#e0116b] text-lg">➜</span> <strong class="text-[#dc2626] bg-[#fee2e2] px-2 py-1 rounded-md text-sm">गलत सोच:</strong> गर्भनिरोधक अपनाने से बाँझपन हो जाता है
+            </p>
+          </div>
+          <div class="p-4 rounded-lg border border-orange-100 shadow-sm">
+            <p class="text-[#5a3d3d] font-medium text-left">
+              <span class="text-[#e0116b] text-lg">➜</span> <strong class="text-[#dc2626] bg-[#fee2e2] px-2 py-1 rounded-md text-sm">सही बात:</strong>  नहीं, किसी भी आधुनिक गर्भनिरोधक साधन से बाँझपन नहीं होता। साधन बंद करने पर महिला दोबारा गर्भधारण कर सकती है。
+            </p>
+          </div>
+        </div>
+
+        <!-- CTA Button -->
+        <a href="FactsandMyths.html"
+          class="inline-block bg-[#e0116b] text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-[#c2185b] hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+          🔍 मिथक और उनसे जुड़े सच जानें
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
