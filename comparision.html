@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L8CV8NRGV0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L8CV8NRGV0');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>गर्भनिरोधक साधनों की तुलना करें | सखी हेल्पलाइन</title>
+  <meta name="description" content="गर्भनिरोधक साधनों की तुलना - सखी हेल्पलाइन">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.png" type="image/png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- jsPDF + html2canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <style>
+    body { font-family: 'Baloo 2', cursive; }
+    h1, h2, h3, h4, h5, h6, li, p, .method-card, .method-card * {
+      font-family: 'Baloo 2', cursive !important;
+    }
+
+    .comparison-bg {
+      background: radial-gradient(circle at top, #ffe5f0 0%, #fffaf5 40%, #fff8fa 100%);
+      min-height: 100vh;
+    }
+
+    .method-card {
+      cursor: pointer;
+      transition: transform 0.18s, box-shadow 0.18s, border 0.18s, background 0.18s, opacity 0.18s;
+      border: 2px solid #fee8ee;
+      background: linear-gradient(135deg, #ffffff 0%, #fffaf5 50%, #ffeef5 100%);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 6px 24px 0 #e0116b22;
+      border-radius: 1.4rem;
+      padding: 1.3rem 1.1rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+    }
+
+    .method-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, #ffd5e7 0, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+    }
+
+    .method-card:hover::before {
+      opacity: 1;
+    }
+
+    .method-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px #e0116b33;
+      border-color: #e0116b;
+    }
+
+    .method-card.selected {
+      border-color: #e0116b;
+      box-shadow: 0 0 0 3px #f9a11633, 0 8px 26px #e0116b33;
+      background: linear-gradient(135deg, #fff0f6 0%, #ffe8f0 50%, #ffe0eb 100%);
+    }
+
+    .method-card.selected::after {
+      content: "चुना गया";
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      background: linear-gradient(90deg, #e0116b, #f9a116);
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 2px 10px;
+      border-radius: 999px;
+      box-shadow: 0 2px 6px #e0116b55;
+    }
+
+    .method-card.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      filter: grayscale(0.2);
+    }
+
+    .method-card img {
+      background: #ffffff;
+      box-shadow: inset 0 0 0 1px #f5d1dd;
+    }
+
+    .method-card .title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #e0116b;
+      margin-bottom: 0.3rem;
+    }
+
+    .method-card .desc {
+      color: #5a3d3d;
+      font-size: 0.9rem;
+    }
+
+    .method-card .label {
+      font-weight: 600;
+      color: #e0116b;
+      font-size: 0.9rem;
+      margin-right: 0.2rem;
+    }
+
+    #methodsGrid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.4rem;
+      width: 100%;
+    }
+
+    @media (max-width: 1024px) {
+      #methodsGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 768px) {
+      #methodsGrid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .selection-info {
+      font-size: 0.9rem;
+      color: #c2185b;
+      margin-top: 0.4rem;
+    }
+
+    .go-top-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 24px;
+      z-index: 50;
+      background: linear-gradient(120deg, #e0116b, #f9a116);
+      color: #fff;
+      border-radius: 999px;
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: 0 4px 16px #e0116b44;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .go-top-btn:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 6px 20px #e0116b66;
+    }
+
+    #comparisonTable {
+      border-collapse: collapse;
+    }
+
+    #comparisonTable th,
+    #comparisonTable td {
+      border: 1px solid #f4c3d8;
+    }
+
+    /* स्टेप-इंडिकेटर */
+    .step-badge {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      background: #fff;
+      color: #e0116b;
+      box-shadow: 0 0 0 2px #fec5da;
+    }
+
+    .step-line {
+      width: 2px;
+      flex: 1;
+      background: linear-gradient(to bottom, #fec5da, transparent);
+      margin: 0 auto;
+    }
+
+    /* राइट साइड सेलेक्शन पैनल */
+    .selection-panel {
+      backdrop-filter: blur(12px);
+      background: radial-gradient(circle at top left, #ffe2f2bb 0, #ffffffdd 50%, #fff7fadd 100%);
+      border-radius: 1.5rem;
+      border: 1px solid #fec8dd;
+      box-shadow: 0 8px 30px #e0116b26;
+    }
+
+    .selected-pill {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.4rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      background: #fff0f5;
+      border: 1px dashed #e0116b77;
+      color: #b01254;
+    }
+  </style>
+</head>
+<body class="bg-[#fff8fa] text-gray-800 font-sans">
+
+  <!-- Header Section -->
+  <header class="w-full bg-white/90 backdrop-blur border-b border-pink-100">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center text-center sm:text-left gap-4 py-3 px-4 sm:px-6">
+      <div class="sm:w-1/3 flex justify-center sm:justify-start">
+        <img src="khush khabri text.png" alt="खुशखबरी टेक्स्ट" style="height: 100px;">
+      </div>
+      <div class="sm:w-1/3 flex justify-center">
+        <img src="logo.png" alt="सखी हेल्पलाइन" class="w-24 sm:w-32">
+      </div>
+      <div class="sm:w-1/3 flex justify-center sm:justify-end space-x-5">
+        <a href="https://www.facebook.com/profile.php?id=61569486591274" title="फेसबुक" class="text-red-600 hover:text-red-800" target="_blank">
+          <i class="fab fa-facebook-f text-xl"></i>
+        </a>
+        <a href="https://www.instagram.com/humaravikalp/" title="इंस्टाग्राम" class="text-red-600 hover:text-red-800" target="_blank">
+          <i class="fab fa-instagram text-xl"></i>
+        </a>
+        <a href="https://www.youtube.com/@My_Vikalp/shorts?app=desktop" title="यूट्यूब" class="text-red-600 hover:text-red-800" target="_blank">
+          <i class="fab fa-youtube text-xl"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="comparison-bg pb-12">
+    <!-- Hero + Step Info -->
+    <section class="max-w-6xl mx-auto px-4 pt-8">
+      <div class="grid gap-6 lg:grid-cols-[minmax(0,3fr)_minmax(260px,1.2fr)] items-start">
+        <!-- Left hero + grid -->
+        <div class="space-y-6">
+          <!-- Hero / Heading Card -->
+          <div class="rounded-3xl bg-white/80 shadow-[0_14px_45px_rgba(224,17,107,0.16)] border border-pink-100 px-5 sm:px-7 py-6 relative overflow-hidden">
+            <div class="absolute -right-10 -top-10 w-40 h-40 bg-gradient-to-br from-[#ffe0ef] to-[#fff0c2] rounded-full opacity-60"></div>
+            <div class="absolute -left-12 bottom-0 w-44 h-44 bg-gradient-to-tr from-[#ffd3e3] to-transparent rounded-full opacity-70"></div>
+
+            <div class="relative z-10 flex flex-col sm:flex-row gap-4 sm:gap-6 items-start sm:items-center">
+              <div class="flex-1">
+                <p class="inline-flex items-center gap-2 text-xs font-semibold text-[#b01254] uppercase tracking-wide mb-1 bg-[#ffe9f1] px-3 py-1 rounded-full border border-[#fecadd]">
+                  <i class="fa-solid fa-heart-circle-plus text-xs"></i>
+                  परिवार नियोजन सहायक
+                </p>
+                <h1 class="text-3xl sm:text-4xl font-bold text-[#e0116b] leading-snug">
+                  गर्भनिरोधक साधनों की<br class="hidden sm:block"> आसान तुलना करें
+                </h1>
+                <p class="mt-2 text-sm sm:text-base text-[#7a4250]">
+                  अपने और अपने परिवार के लिए सही विकल्प समझने के लिए <span class="font-semibold">कोई भी दो साधन चुनें</span> और उनकी जानकारी साथ-साथ देखें।
+                </p>
+                <p id="selectionInfo" class="selection-info mt-1.5 inline-flex items-center gap-2 bg-[#fff1f6] px-3 py-1 rounded-full border border-pink-100">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#e0116b] animate-pulse"></span>
+                  0/2 साधन चुने गए
+                </p>
+              </div>
+
+              <!-- Steps vertical -->
+              <div class="hidden sm:flex flex-col items-center gap-2 min-w-[110px]">
+                <div class="flex flex-col items-center gap-2">
+                  <span class="step-badge">1</span>
+                  <span class="text-xs text-[#a01856] text-center font-semibold">दो साधन चुनें</span>
+                </div>
+                <div class="step-line"></div>
+                <div class="flex flex-col items-center gap-2">
+                  <span class="step-badge bg-[#f9a116] text-white shadow-[0_0_0_2px_#ffe8ba]">2</span>
+                  <span class="text-xs text-[#b85a08] text-center font-semibold">तुलना देखें व डाउनलोड करें</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Grid Title -->
+          <div class="flex items-center justify-between">
+            <h2 class="text-lg sm:text-xl font-semibold text-[#c2185b] flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#f9a116]"></span>
+              उपलब्ध गर्भनिरोधक साधन
+            </h2>
+            <p class="text-[11px] sm:text-xs text-gray-600 italic">
+              आप एक समय में केवल <span class="font-semibold text-[#e0116b]">2 साधन</span> चुन सकते हैं
+            </p>
+          </div>
+
+          <!-- Cards Grid -->
+          <div id="methodsGrid" class="mt-2">
+            <!-- JS से लोड होगा -->
+          </div>
+        </div>
+
+        <!-- Right: Sticky selection panel -->
+        <aside class="lg:sticky lg:top-24 selection-panel px-4 sm:px-6 py-5 mt-2 lg:mt-0">
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <div>
+              <h3 class="text-base sm:text-lg font-bold text-[#e0116b] flex items-center gap-2">
+                <i class="fa-solid fa-list-check text-sm"></i>
+                आपके चुने हुए साधन
+              </h3>
+              <p class="text-xs text-gray-700 mt-0.5">
+                अधिकतम 2 साधन चुनें और नीचे तुलना देखें।
+              </p>
+            </div>
+            <button id="newSelectionBtn"
+              class="text-[11px] sm:text-xs font-semibold text-[#e0116b] border border-[#f5b4cb] px-3 py-1 rounded-full bg-white hover:bg-[#ffe8f2]">
+              🔁 रीसेट
+            </button>
+          </div>
+
+          <div id="selectedList" class="space-y-2 mb-3 text-sm">
+            <p class="text-[12px] text-gray-500 italic">
+              अभी कोई साधन चुना नहीं गया है। नीचे दिए कार्ड पर टैप करके साधन चुनें।
+            </p>
+          </div>
+
+          <div class="border-t border-pink-100 pt-3 mt-2">
+            <button id="compareBtn"
+              class="w-full bg-gradient-to-r from-[#e0116b] to-[#f9a116] text-white px-4 py-2.5 rounded-xl shadow-lg hover:scale-[1.02] transition font-semibold text-sm flex items-center justify-center gap-2"
+              style="display:none;">
+              <i class="fa-solid fa-arrows-left-right"></i>
+              चुने गए 2 साधनों की तुलना देखें
+            </button>
+            <p class="mt-2 text-[11px] text-gray-600 flex items-start gap-1.5">
+              <i class="fa-solid fa-circle-info mt-0.5 text-[#f9a116]"></i>
+              तुलना देखने के बाद आप जानकारी को पीडीएफ में भी डाउनलोड कर सकते हैं।
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Comparison Table Section -->
+    <section id="compareSection" class="max-w-5xl mx-auto my-10 px-4 w-full" style="display:none;">
+      <div class="rounded-3xl bg-white/95 border border-pink-100 shadow-[0_18px_45px_rgba(224,17,107,0.18)] overflow-hidden">
+        <div class="px-5 sm:px-8 py-5 border-b border-pink-100 bg-gradient-to-r from-[#fff0f6] via-[#fff7ec] to-[#ffe7f4] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-[#e0116b] mb-1">
+              चुने गए गर्भनिरोधक साधनों की तुलना
+            </h3>
+            <p class="text-xs sm:text-sm text-[#7a4250]">
+              नीचे दी गई तालिका में दोनों साधनों की मुख्य बातें साथ-साथ दिखाई गई हैं।
+            </p>
+          </div>
+          <button id="downloadBtn"
+            class="bg-gradient-to-r from-[#e0116b] to-[#f9a116] text-white px-4 sm:px-5 py-2 rounded-full shadow-md hover:shadow-lg hover:scale-[1.02] transition text-xs sm:text-sm font-semibold flex items-center gap-2"
+            style="display:none;">
+            📄 जानकारी पीडीएफ में डाउनलोड करें
+          </button>
+        </div>
+
+        <div id="comparisonTableWrapper" class="w-full mb-2 mx-auto bg-white p-3 sm:p-5">
+          <!-- यही हिस्सा html2canvas से कैप्चर होगा, इसलिए हेडिंग यहीं रखी गई है -->
+          <div id="pdfHeading" class="mb-4 text-center">
+            <h2 class="text-lg font-bold text-[#e0116b]">
+              गर्भनिरोधक साधनों की तुलना करें
+            </h2>
+            <p class="text-xs text-gray-700">
+              कोई भी दो साधन चुनें और उनकी जानकारी साथ-साथ देखें।
+            </p>
+          </div>
+
+          <div id="comparisonTableContainer" class="w-full"></div>
+
+          <p id="effectivenessNote" class="mt-3 text-[11px] text-gray-600 leading-snug">
+            * उत्तम इस्तेमाल के साथ प्रभावकारिता: जब गर्भनिरोधक साधन बिल्कुल सही तरह से, बिना किसी गलती के, इस्तेमाल किया जाए।
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Go to Top Button -->
+  <button id="goTopBtn" class="go-top-btn" title="ऊपर जाएँ" style="display:none;">
+    <i class="fa fa-arrow-up"></i>
+  </button>
+
+  <!-- Footer Section -->
+  <section class="w-full bg-[#e0116b] py-12 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 z-0 pointer-events-none">
+      <svg width="100%" height="100%" preserveAspectRatio="none">
+        <defs>
+          <pattern id="footer-star-pattern" width="24" height="24" patternUnits="userSpaceOnUse">
+            <polygon points="12,0 15,8 24,8 17,14 20,24 12,18 4,24 7,14 0,8 9,8" fill="#FFDB58" />
+          </pattern>
+        </defs>
+        <rect x="0" y="0" width="100%" height="10" fill="url(#footer-star-pattern)" />
+        <rect x="0" y="calc(100% - 10px)" width="100%" height="10" fill="url(#footer-star-pattern)" />
+        <rect x="0" y="0" width="10" height="100%" fill="url(#footer-star-pattern)" />
+        <rect x="calc(100% - 10px)" y="0" width="10" height="100%" fill="url(#footer-star-pattern)" />
+      </svg>
+    </div>
+    <div class="max-w-6xl mx-auto flex flex-col items-center text-center relative z-10">
+      <a href="index.html">
+        <img src="logo.png" alt="सखी हेल्पलाइन लोगो" class="w-28 sm:w-36 mb-0">
+      </a>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
+        <span class="text-lg sm:text-xl font-semibold text-white"
+          style="text-shadow: 1px 1px 4px rgba(0,0,0,0.3);">
+          पहले बच्चे में देरी और दो बच्चों में अंतर रखने के लिए अभी संपर्क करें
+        </span>
+        <a href="tel:18002025862"
+           class="inline-flex items-center gap-2 bg-gradient-to-r from-[#FFDB58] to-[#ffe680] text-[#e0116b] font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-yellow-300 hover:scale-105 transition-all duration-300">
+          📞 1800 202 5862 निःशुल्क
+        </a>
+      </div><br>
+      <h2 class="text-xl sm:text-2xl font-semibold text-black pb-6 mt-4 sm:mt-2"
+          style="text-shadow: 1px 1px 4px rgba(0,0,0,0.3);">
+        अधिक जानकारी के लिए अपनी आशा कार्यकर्ता से भी संपर्क कर सकते हैं
+      </h2>
+    </div>
+  </section>
+
+  <!-- LOGIC SCRIPT -->
+  <script>
+    // =========================
+    // 1. METHODS DATA
+    // =========================
+    const methods = [
+      {
+        key: 'antaraSui',
+        imageSrc: 'antara.png',
+        imageAlt: 'अंतरा सुई - गर्भनिरोधक साधन',
+        name: 'अंतरा सुई',
+        kyaHai: 'यह एक हार्मोन वाली सुई है जो महिला को लगाई जाती है।',
+        kyaHaiFull: 'यह एक हार्मोन वाली सुई है जो महिला को लगाई जाती है।',
+        kitnaPrabhavi: '99% से अधिक',
+        kabIstemaal: 'हर तीन महीने पर',
+        kyaYaurRogSeBachata: 'नहीं',
+        upalabdhata: '➜ सभी सरकारी स्वास्थ्य केंद्रों पर, मुफ़्त',
+        fayde: 'बहुत प्रभावी, तीन महीने तक चिंता मुक्त,<br>किसी को पता न चले',
+        seemaen: '➜ इस्तेमाल शुरू करने पर माहवारी में बदलाव होते हैं<br>➜ बंद करने पर गर्भधारण करने में 7-10 महीने लग सकते हैं',
+        adhikJaankariLink: 'https://www.humaravikalp.org/garbhnirodh-ke-saadhan.html'
+      },
+      {
+        key: 'chhayaSaptahikGoli',
+        imageSrc: 'chhaya.png',
+        imageAlt: 'छाया (साप्ताहिक गोली) - गर्भनिरोधक साधन',
+        name: 'छाया (साप्ताहिक गोली)',
+        kyaHai: 'यह गोली महिलाओं द्वारा ली जाती है, और इनमें हार्मोन नहीं होता।',
+        kyaHaiFull: 'यह गोली महिलाओं द्वारा ली जाती है, और इनमें हार्मोन नहीं होता।',
+        kitnaPrabhavi: '98% तक',
+        kabIstemaal: '➜ पहले तीन महीने - सप्ताह में 2 बार<br>➜ तीन माह बाद - सप्ताह में 1 बार',
+        kyaYaurRogSeBachata: 'नहीं',
+        upalabdhata: '➜ सभी सरकारी स्वास्थ्य केंद्रों पर, मुफ़्त',
+        fayde: 'बहुत प्रभावी,<br>इस्तेमाल में आसान',
+        seemaen: 'नियमित दिनों पर गोली लेना याद रखना है',
+        adhikJaankariLink: 'https://www.humaravikalp.org/garbhnirodh-ke-saadhan.html'
+      },
+      {
+        key: 'malaN',
+        imageSrc: 'MALA-N daily.png',
+        imageAlt: 'माला-एन (रोज़ाना वाली गोली) - गर्भनिरोधक साधन',
+        name: 'माला-एन (रोज़ाना वाली गोली)',
+        kyaHai: 'यह हार्मोन वाली गोली है जिन्हें महिलाओं द्वारा लिया जाता है।',
+        kyaHaiFull: 'यह हार्मोन वाली गोली है जिन्हें महिलाओं द्वारा लिया जाता है।',
+        kitnaPrabhavi: '99% से अधिक',
+        kabIstemaal: 'रोज़ाना',
+        kyaYaurRogSeBachata: 'नहीं',
+        upalabdhata: '➜ सभी सरकारी स्वास्थ्य केंद्रों पर, मुफ़्त',
+        fayde: 'बहुत प्रभावी,<br>इस्तेमाल में आसान',
+        seemaen: 'रोज़ाना गोली लेना याद रखना है',
+        adhikJaankariLink: 'https://www.humaravikalp.org/garbhnirodh-ke-saadhan.html'
+      },
+      {
+        key: 'IUCD',
+        imageSrc: 'IUCD5.png',
+        imageAlt: 'आईयूसीडी (5 व 10 वर्ष) - गर्भनिरोधक साधन',
+        name: 'आईयूसीडी (5 व 10 वर्ष)',
+        kyaHai: '➜ यह एक छोटा सा उपकरण है जो सेवा प्रदाता द्वारा महिला के गर्भाशय में लगाया जाता है।',
+        kyaHaiFull: '➜ यह एक छोटा सा उपकरण है जो सेवा प्रदाता द्वारा महिला के गर्भाशय में लगाया जाता है।',
+        kitnaPrabhavi: '99% से अधिक',
+        kabIstemaal: '5 या 10 वर्ष में एक बार',
+        kyaYaurRogSeBachata: 'नहीं',
+        upalabdhata: '➜ सभी सरकारी स्वास्थ्य केंद्रों पर, मुफ़्त',
+        fayde: 'लंबे समय तक बहुत प्रभावी',
+        seemaen: 'माहवारी में अधिक रक्तस्राव या पेट में ऐंठन हो सकती है',
+        adhikJaankariLink: 'https://www.humaravikalp.org/garbhnirodh-ke-saadhan.html'
+      },
+      {
+        key: 'condom',
+        imageSrc: 'condom.png',
+        imageAlt: 'कंडोम (निरोध) - गर्भनिरोधक साधन',
+        name: 'कंडोम (निरोध)',
+        kyaHai: '➜ यह एक पतला रबर का खोल होता है जिसे पुरुष संभोग के दौरान उत्तेजित लिंग पर चढ़ाते हैं।',
+        kyaHaiFull: '➜ यह एक पतला रबर का खोल होता है जिसे पुरुष संभोग के दौरान उत्तेजित लिंग पर चढ़ाते हैं।',
+        kitnaPrabhavi: '98% तक',
+        kabIstemaal: 'हर संभोग पर',
+        kyaYaurRogSeBachata: 'हाँ',
+        upalabdhata: '➜ आशा कार्यकर्ता के पास व सभी सरकारी स्वास्थ्य केंद्रों पर, मुफ़्त',
+        fayde: 'गर्भधारण के साथ-साथ यौन रोगों से बचाव,<br>इस्तेमाल में आसान',
+        seemaen: 'यौन प्रक्रिया के दौरान रुककर पहनना होता है',
+        adhikJaankariLink: 'https://www.humaravikalp.org/garbhnirodh-ke-saadhan.html'
+      },
+      {
+        key: 'easyEmergencyPill',
+        imageSrc: 'emergency-pill.png',
+        imageAlt: 'ईज़ी गोली (आपातकालीन गोली) - गर्भनिरोधक साधन',
+        name: 'ईज़ी गोली (आपातकालीन गोली)',
+        kyaHai: '➜ यह हार्मोन वाली गोली है जिन्हें महिलाएँ असुरक्षित संभोग के बाद अनचाहे गर्भ से बचने के लिए लेती हैं। यह आपातकालीन विधि है।',
+        kyaHaiFull: '➜ यह हार्मोन वाली गोली है जिन्हें महिलाएँ असुरक्षित संभोग के बाद अनचाहे गर्भ से बचने के लिए लेती हैं। यह आपातकालीन विधि है।',
+        kitnaPrabhavi: '99% तक (सही समय पर लेने पर)',
+        kabIstemaal: 'असुरक्षित शारीरिक संबंध बनने के 72 घंटों के अंदर',
+        kyaYaurRogSeBachata: 'नहीं',
+        upalabdhata: '➜ आशा कार्यकर्ता के पास व सभी सरकारी स्वास्थ्य केंद्रों पर, मुफ़्त',
+        fayde: 'आपातकालीन स्थिति में मदद करती है',
+        seemaen: 'इसमें हार्मोन ज़्यादा होता है, नियमित साधन की जगह पर इस्तेमाल नहीं कर सकते',
+        adhikJaankariLink: 'https://www.humaravikalp.org/garbhnirodh-ke-saadhan.html'
+      },
+      {
+        key: 'femaleSterilization',
+        imageSrc: 'female-sterilization.png',
+        imageAlt: 'महिला नसबंदी - गर्भनिरोधक साधन',
+        name: 'महिला नसबंदी',
+        kyaHai: '➜ यह एक छोटा सा ऑपरेशन है उन महिलाओं के लिए जो निश्चित रूप से और बच्चे नहीं चाहती हैं।',
+        kyaHaiFull: '➜ यह एक छोटा सा ऑपरेशन है उन महिलाओं के लिए जो निश्चित रूप से और बच्चे नहीं चाहती हैं।',
+        kitnaPrabhavi: '99% से अधिक',
+        kabIstemaal: 'एक बार, जब परिवार पूरा हो जाए',
+        kyaYaurRogSeBachata: 'नहीं',
+        upalabdhata: '➜ प्रमाणित स्वास्थ्य केन्द्रों पर व सरकारी स्वास्थ्य केंद्रों पर, मुफ़्त',
+        fayde: 'बहुत प्रभावी,<br>हमेशा के लिए चिंतामुक्त',
+        seemaen: 'भविष्य में गर्भधारण संभव नहीं',
+        adhikJaankariLink: 'https://www.humaravikalp.org/garbhnirodh-ke-saadhan.html'
+      },
+      {
+        key: 'maleSterilization',
+        imageSrc: 'male-sterilization.png',
+        imageAlt: 'पुरुष नसबंदी - गर्भनिरोधक साधन',
+        name: 'पुरुष नसबंदी',
+        kyaHai: '➜ यह एक छोटा सा ऑपरेशन है उन पुरुषों के लिए जो निश्चित रूप से और बच्चे नहीं चाहते हैं।',
+        kyaHaiFull: '➜ यह एक छोटा सा ऑपरेशन है उन पुरुषों के लिए जो निश्चित रूप से और बच्चे नहीं चाहते हैं।',
+        kitnaPrabhavi: '99% से अधिक',
+        kabIstemaal: 'एक बार, जब परिवार पूरा हो जाए',
+        kyaYaurRogSeBachata: 'नहीं',
+        upalabdhata: '➜ प्रमाणित स्वास्थ्य केन्द्रों पर व सरकारी स्वास्थ्य केंद्रों पर, मुफ़्त',
+        fayde: 'बहुत प्रभावी,<br>हमेशा के लिए चिंतामुक्त',
+        seemaen: 'भविष्य में गर्भधारण संभव नहीं',
+        adhikJaankariLink: 'https://www.humaravikalp.org/garbhnirodh-ke-saadhan.html'
+      }
+    ];
+
+    const grid = document.getElementById('methodsGrid');
+    const selectionInfo = document.getElementById('selectionInfo');
+    const compareSection = document.getElementById('compareSection');
+    const comparisonTableContainer = document.getElementById('comparisonTableContainer');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const compareBtn = document.getElementById('compareBtn');
+    const newSelectionBtn = document.getElementById('newSelectionBtn');
+    const selectedList = document.getElementById('selectedList');
+
+    // =========================
+    // 2. RENDER CARDS
+    // =========================
+    methods.forEach(m => {
+      const card = document.createElement('div');
+      card.className = "method-card";
+      card.setAttribute('data-key', m.key);
+      card.innerHTML = `
+        <img src="${m.imageSrc}" alt="${m.imageAlt}"
+             class="w-20 h-20 object-contain mb-3 rounded-full bg-white shadow-inner">
+        <div class="title">${m.name}</div>
+        <div class="desc">
+          <span class="label">क्या है?</span> ${m.kyaHai}
+        </div>
+      `;
+      card.addEventListener('click', function () {
+        selectCard(m.key);
+      });
+      grid.appendChild(card);
+    });
+
+    let selected = [];
+
+    function updateSelectionInfo() {
+      selectionInfo.textContent = `${selected.length}/2 साधन चुने गए`;
+      renderSelectedList();
+    }
+
+    function renderSelectedList() {
+      if (!selected.length) {
+        selectedList.innerHTML = `
+          <p class="text-[12px] text-gray-500 italic">
+            अभी कोई साधन चुना नहीं गया है। नीचे दिए कार्ड पर टैप करके साधन चुनें।
+          </p>`;
+        return;
+      }
+      const items = selected.map(key => {
+        const m = methods.find(mm => mm.key === key);
+        return `
+          <div class="selected-pill">
+            <span class="inline-flex items-center gap-1">
+              <i class="fa-solid fa-check-circle text-xs"></i>
+              <span>${m.name}</span>
+            </span>
+            <button type="button" data-remove="${key}" class="text-[11px] text-[#b01254] hover:text-[#7b0b39]">
+              ✕
+            </button>
+          </div>
+        `;
+      }).join("");
+      selectedList.innerHTML = items;
+
+      // रिमूव बटन
+      selectedList.querySelectorAll('button[data-remove]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const key = btn.getAttribute('data-remove');
+          selected = selected.filter(k => k !== key);
+          updateSelectionInfo();
+          updateCardStates();
+          clearComparison();
+        });
+      });
+    }
+
+    function updateCardStates() {
+      const cards = document.querySelectorAll('.method-card');
+      cards.forEach(card => {
+        const key = card.getAttribute('data-key');
+        if (selected.includes(key)) {
+          card.classList.add('selected');
+          card.classList.remove('disabled');
+        } else {
+          card.classList.remove('selected');
+          if (selected.length >= 2) {
+            card.classList.add('disabled');
+          } else {
+            card.classList.remove('disabled');
+          }
+        }
+      });
+      compareBtn.style.display = (selected.length === 2) ? 'flex' : 'none';
+    }
+
+    function clearComparison() {
+      comparisonTableContainer.innerHTML = "";
+      compareSection.style.display = "none";
+      downloadBtn.style.display = "none";
+    }
+
+    // =========================
+    // 3. CARD SELECTION
+    // =========================
+    function selectCard(key) {
+      if (selected.includes(key)) {
+        selected = selected.filter(k => k !== key);
+        updateSelectionInfo();
+        updateCardStates();
+        clearComparison();
+        return;
+      }
+      if (selected.length >= 2) {
+        return;
+      }
+      selected.push(key);
+      updateSelectionInfo();
+      updateCardStates();
+    }
+
+    // Compare
+    compareBtn.addEventListener('click', () => {
+      if (selected.length === 2) {
+        renderTable(selected[0], selected[1]);
+        compareSection.style.display = "block";
+        compareSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+    // Reset
+    newSelectionBtn.addEventListener('click', () => {
+      selected = [];
+      updateSelectionInfo();
+      updateCardStates();
+      clearComparison();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // =========================
+    // 4. COMPARISON TABLE
+    // =========================
+    function renderTable(opt1, opt2) {
+      if (!opt1 || !opt2 || opt1 === opt2) {
+        clearComparison();
+        return;
+      }
+      const d1 = methods.find(m => m.key === opt1);
+      const d2 = methods.find(m => m.key === opt2);
+      if (!d1 || !d2) return;
+
+      const table = `
+        <div class="overflow-x-auto">
+          <table id="comparisonTable" class="w-full bg-white rounded border text-xs sm:text-sm">
+            <thead>
+              <tr class="bg-[#fde8ec]">
+                <th class="py-3 px-3 sm:px-4 text-left w-1/3">तुलना के बिंदु</th>
+                <th class="py-3 px-3 sm:px-4 text-center w-1/3">${d1.name}</th>
+                <th class="py-3 px-3 sm:px-4 text-center w-1/3">${d2.name}</th>
+              </tr>
+            </thead>
+            <tbody class="align-top">
+              <tr>
+                <td class="py-2 px-3 sm:px-4 font-semibold text-left">यह क्या है?</td>
+                <td class="py-2 px-3 sm:px-4">${d1.kyaHaiFull}</td>
+                <td class="py-2 px-3 sm:px-4">${d2.kyaHaiFull}</td>
+              </tr>
+              <tr class="bg-[#fff6f6]">
+                <td class="py-2 px-3 sm:px-4 font-semibold text-left">यह कितना प्रभावी है?</td>
+                <td class="py-2 px-3 sm:px-4">${d1.kitnaPrabhavi}</td>
+                <td class="py-2 px-3 sm:px-4">${d2.kitnaPrabhavi}</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 sm:px-4 font-semibold text-left">कब इस्तेमाल करते हैं?</td>
+                <td class="py-2 px-3 sm:px-4">${d1.kabIstemaal}</td>
+                <td class="py-2 px-3 sm:px-4">${d2.kabIstemaal}</td>
+              </tr>
+              <tr class="bg-[#fff6f6]">
+                <td class="py-2 px-3 sm:px-4 font-semibold text-left">क्या यह यौन रोगों से बचाता है?</td>
+                <td class="py-2 px-3 sm:px-4">${d1.kyaYaurRogSeBachata}</td>
+                <td class="py-2 px-3 sm:px-4">${d2.kyaYaurRogSeBachata}</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 sm:px-4 font-semibold text-left">उपलब्धता</td>
+                <td class="py-2 px-3 sm:px-4">${d1.upalabdhata}</td>
+                <td class="py-2 px-3 sm:px-4">${d2.upalabdhata}</td>
+              </tr>
+              <tr class="bg-[#fff6f6]">
+                <td class="py-2 px-3 sm:px-4 font-semibold text-left">इसके फ़ायदे</td>
+                <td class="py-2 px-3 sm:px-4">${d1.fayde}</td>
+                <td class="py-2 px-3 sm:px-4">${d2.fayde}</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 sm:px-4 font-semibold text-left">इसकी असुविधाएँ / सीमाएँ</td>
+                <td class="py-2 px-3 sm:px-4">${d1.seemaen}</td>
+                <td class="py-2 px-3 sm:px-4">${d2.seemaen}</td>
+              </tr>
+              <tr class="bg-[#fff6f6]">
+                <td class="py-2 px-3 sm:px-4 font-semibold text-left">अधिक जानकारी</td>
+                <td class="py-2 px-3 sm:px-4">
+                  <a href="${d1.adhikJaankariLink}" target="_blank" class="text-blue-600 underline">
+                    अधिक जानकारी देखें
+                  </a>
+                </td>
+                <td class="py-2 px-3 sm:px-4">
+                  <a href="${d2.adhikJaankariLink}" target="_blank" class="text-blue-600 underline">
+                    अधिक जानकारी देखें
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      `;
+      comparisonTableContainer.innerHTML = table;
+      compareSection.style.display = "block";
+      downloadBtn.style.display = "inline-flex";
+    }
+
+    // =========================
+    // 5. PDF DOWNLOAD (सिर्फ इमेज, इसलिए हिंदी सही रहेगी)
+    // =========================
+    downloadBtn.addEventListener('click', function () {
+      const wrapper = document.getElementById('comparisonTableWrapper');
+      if (!wrapper || !document.getElementById('comparisonTable')) {
+        return;
+      }
+      const { jsPDF } = window.jspdf;
+      html2canvas(wrapper, { scale: 2 }).then(canvas => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF('p', 'mm', 'a4');
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
+        const margin = 10;
+        const imgWidth = pageWidth - margin * 2;
+        const imgHeight = canvas.height * imgWidth / canvas.width;
+
+        const yStart = margin;
+
+        if (imgHeight > pageHeight - yStart - margin) {
+          const ratio = (pageHeight - yStart - margin) / imgHeight;
+          pdf.addImage(imgData, 'PNG', margin, yStart, imgWidth * ratio, imgHeight * ratio);
+        } else {
+          pdf.addImage(imgData, 'PNG', margin, yStart, imgWidth, imgHeight);
+        }
+
+        pdf.save("garbhnirodhak-saadhan-tulana.pdf");
+      });
+    });
+
+    // =========================
+    // 6. GO TO TOP BUTTON
+    // =========================
+    const goTopBtn = document.getElementById('goTopBtn');
+    window.addEventListener('scroll', () => {
+      goTopBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    });
+    goTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // init
+    updateSelectionInfo();
+    updateCardStates();
+  </script>
+</body>
+</html>
